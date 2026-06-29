@@ -3,236 +3,275 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="TotLoop — Australia's curated, safety-vetted secondhand baby and kids gear marketplace. Curated listings, verified sellers, zero recalled gear. Coming soon.">
-  <meta property="og:title" content="TotLoop — Give pre-loved joy a second spin">
-  <meta property="og:description" content="Curated listings, verified sellers, zero recalled gear. Secondhand baby gear done right. Coming soon to Australia.">
+  <meta name="description" content="TotLoop — Australia's first curated, safety-verified marketplace for pre-loved baby gear. Every listing checked against ACCC recalls. Coming soon.">
+  <meta property="og:title" content="TotLoop — Outgrown, never outdated.">
+  <meta property="og:description" content="Australia's first curated, safety-verified marketplace for pre-loved baby gear. Join the waitlist.">
   <meta property="og:type" content="website">
-  <title>TotLoop — Give pre-loved joy a second spin</title>
+  <title>TotLoop — Outgrown, never outdated.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+  <script async src="https://tally.so/widgets/embed.js"></script>
   <style>
+    /* ── RESET ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif; background: #FAF6F0; color: #1A3C34; -webkit-font-smoothing: antialiased; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    body { font-family: 'Nunito', -apple-system, sans-serif; background: #FBF7F4; color: #1A1A2E; -webkit-font-smoothing: antialiased; }
     a { text-decoration: none; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    /* ── BRAND TOKENS ── */
+    :root {
+      --coral:    #E8736A;
+      --coral-lt: #FAEAEA;
+      --dark:     #1A1A2E;
+      --mid:      #4A5568;
+      --muted:    #9CA3AF;
+      --bg:       #FBF7F4;
+      --card:     #FFFFFF;
+      --bdr:      rgba(0,0,0,.07);
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .logo-tot  { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 18px; color: var(--dark); }
+    .logo-loop { font-family: 'Dancing Script', cursive; font-size: 22px; color: var(--coral); }
+    .joy       { font-family: 'Dancing Script', cursive; color: var(--coral); font-size: clamp(30px,5vw,52px); }
 
     /* ── FOUNDING BAR ── */
-    .fbar { background: #E8673A; color: white; padding: .5rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: .75rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; }
-    .fbar-l { display: flex; align-items: center; gap: .625rem; font-size: 12px; font-weight: 700; }
+    .fbar { background: var(--coral); color: white; padding: .5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: .75rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 200; }
+    .fbar-l { font-size: 12px; font-weight: 700; display: flex; align-items: center; gap: .5rem; }
     .fbar-r { display: flex; align-items: center; gap: .875rem; flex-shrink: 0; }
-    .spotwrap { display: flex; align-items: center; gap: 7px; }
     .spotbar { width: 90px; height: 4px; background: rgba(255,255,255,.3); border-radius: 99px; overflow: hidden; }
-    .spotfill { height: 100%; background: white; border-radius: 99px; transition: width .4s ease; }
-    .fspot { font-size: 11px; font-weight: 800; opacity: .9; white-space: nowrap; }
-    .fbar-btn { background: white; color: #E8673A; border: none; border-radius: 99px; padding: 5px 14px; font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap; transition: opacity .15s; }
+    .spotfill { height: 100%; background: white; border-radius: 99px; transition: width .4s; }
+    .fspot { font-size: 11px; font-weight: 800; white-space: nowrap; }
+    .fbar-btn { background: white; color: var(--coral); border: none; border-radius: 99px; padding: 5px 14px; font-family: 'Nunito',sans-serif; font-size: 12px; font-weight: 800; cursor: pointer; transition: opacity .15s; }
     .fbar-btn:hover { opacity: .9; }
 
     /* ── NAV ── */
-    .nav { background: white; display: flex; align-items: center; justify-content: space-between; padding: .875rem 2rem; border-bottom: 1px solid rgba(0,0,0,.07); position: sticky; top: 36px; z-index: 99; }
-    .logo { display: flex; align-items: center; gap: .5rem; cursor: pointer; }
-    .lc { width: 34px; height: 34px; background: #E8673A; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; font-weight: 800; flex-shrink: 0; }
-    .lt { font-size: 18px; font-weight: 800; color: #1A3C34; }
-    .lt b { color: #E8673A; }
-    .lau { font-size: 9px; font-weight: 800; background: #1A3C34; color: white; padding: 1px 5px; border-radius: 3px; margin-left: 4px; vertical-align: 2px; }
-    .navl { display: flex; gap: 1.5rem; font-size: 13px; font-weight: 700; color: #5A7A74; }
-    .navl .act { color: #1A3C34; border-bottom: 2px solid #E8673A; padding-bottom: 2px; }
-    .navl span { cursor: pointer; transition: color .15s; }
-    .navl span:hover { color: #1A3C34; }
-    .ncta { background: #1A3C34; color: white; border: none; border-radius: 99px; padding: 8px 18px; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; transition: background .15s; }
-    .ncta:hover { background: #2D5A4F; }
+    .nav { background: white; display: flex; align-items: center; justify-content: space-between; padding: .875rem 2rem; border-bottom: 1px solid var(--bdr); position: sticky; top: 40px; z-index: 199; }
+    .logo { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+    .logo-ic { width: 34px; height: 34px; border-radius: 50%; background: var(--coral-lt); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .logo-ic i { font-size: 16px; color: var(--coral); }
+    .navl { display: flex; gap: 1.5rem; font-size: 13px; font-weight: 700; color: var(--muted); }
+    .navl a { color: var(--muted); cursor: pointer; transition: color .15s; }
+    .navl a:hover, .navl a.act { color: var(--dark); border-bottom: 2px solid var(--coral); padding-bottom: 2px; }
+    .ncta { background: var(--dark); color: white; border: none; border-radius: 99px; padding: 9px 20px; font-family: 'Nunito',sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; transition: background .15s; }
+    .ncta:hover { background: #2D2D4A; }
 
     /* ── HERO ── */
-    .hero { margin: 1.25rem 1.5rem 0; background: #FDE8D0; border-radius: 24px; padding: 3rem 2.5rem; display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: center; min-height: 340px; }
-    .hbadge { display: inline-flex; align-items: center; gap: 6px; background: white; color: #E8673A; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 99px; margin-bottom: 1rem; }
-    .hh1 { font-size: clamp(28px, 4.5vw, 52px); font-weight: 800; line-height: 1.1; color: #1A3C34; margin-bottom: .875rem; letter-spacing: -1px; }
-    .hh1 .joy { color: #E8673A; font-style: italic; }
-    .hp { font-size: 14px; color: #2D5A4F; line-height: 1.7; margin-bottom: 1.375rem; max-width: 460px; }
-    .hsearch { display: flex; background: white; border-radius: 50px; padding: 5px 5px 5px 16px; align-items: center; gap: 8px; box-shadow: 0 2px 16px rgba(0,0,0,.1); margin-bottom: .625rem; cursor: pointer; max-width: 500px; }
-    .hsearch input { flex: 1; border: none; outline: none; font-family: 'Nunito', sans-serif; font-size: 13px; color: #1A3C34; background: transparent; pointer-events: none; min-width: 0; }
-    .hfind { background: #E8673A; color: white; border: none; border-radius: 50px; padding: 9px 18px; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; white-space: nowrap; transition: background .15s; }
+    .hero { margin: 1.25rem 1.5rem 0; border-radius: 24px; padding: 3rem 2.5rem; display: grid; grid-template-columns: 1.15fr .85fr; gap: 2.5rem; align-items: center; background: linear-gradient(135deg, #fff5f4 0%, #fdf9f7 60%, #f4f7ff 100%); border: 1px solid var(--bdr); min-height: 380px; }
+    .hbadge { display: inline-flex; align-items: center; gap: 6px; background: var(--coral-lt); color: var(--coral); font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 99px; margin-bottom: 1.125rem; letter-spacing: .04em; }
+    .hh1 { font-size: clamp(28px, 4.5vw, 50px); font-weight: 800; line-height: 1.1; color: var(--dark); margin-bottom: .875rem; letter-spacing: -1.5px; }
+    .hp { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 1.375rem; max-width: 480px; }
+    .hsearch { display: flex; background: white; border-radius: 50px; padding: 5px 5px 5px 16px; align-items: center; gap: 8px; box-shadow: 0 2px 16px rgba(0,0,0,.08); margin-bottom: .625rem; cursor: pointer; border: 1px solid var(--bdr); max-width: 520px; }
+    .hsearch input { flex: 1; border: none; outline: none; font-family: 'Nunito',sans-serif; font-size: 13px; color: var(--dark); background: transparent; pointer-events: none; min-width: 0; }
+    .hfind { background: var(--coral); color: white; border: none; border-radius: 50px; padding: 9px 20px; font-family: 'Nunito',sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; white-space: nowrap; transition: background .15s; }
     .hfind:hover { background: #cf5c30; }
-    .hsell { font-size: 12px; font-weight: 700; color: #2D5A4F; margin-bottom: .75rem; }
-    .hsell a { color: #E8673A; font-weight: 800; cursor: pointer; text-decoration: underline; }
-    .cpills { display: flex; gap: 6px; flex-wrap: wrap; }
-    .cpill { background: rgba(255,255,255,.8); border: 1px solid rgba(255,255,255,.95); border-radius: 99px; padding: 4px 11px; font-family: 'Nunito', sans-serif; font-size: 11px; font-weight: 700; color: #1A3C34; cursor: pointer; transition: background .15s; }
-    .cpill:hover { background: white; }
-    .trust { display: flex; flex-wrap: wrap; gap: .375rem 1rem; font-size: 11px; color: #2D5A4F; font-weight: 700; margin-top: .75rem; }
-    .trust span { display: flex; align-items: center; gap: 4px; }
-    .hero-right { position: relative; height: 300px; }
-    .hpc { position: absolute; background: white; border-radius: 14px; padding: 12px; box-shadow: 0 10px 28px rgba(26,60,52,.18); width: 185px; }
-    .hpc img { width: 100%; height: 90px; object-fit: cover; border-radius: 8px; margin-bottom: 8px; display: block; background: #e8d0bc; }
-    .hpc-br { font-size: 9px; font-weight: 700; color: #5A7A74; text-transform: uppercase; letter-spacing: .04em; }
-    .hpc-nm { font-size: 12px; font-weight: 800; color: #1A3C34; margin: 3px 0 5px; line-height: 1.3; }
-    .hpc-vb { display: inline-flex; align-items: center; gap: 3px; background: #E8F5E0; color: #2D6A1F; font-size: 8px; font-weight: 800; padding: 2px 7px; border-radius: 99px; margin-bottom: 5px; }
-    .hpc-pr { display: flex; align-items: baseline; gap: 5px; }
-    .hpc-price { font-size: 15px; font-weight: 800; color: #1A3C34; }
-    .hpc-rrp { font-size: 9px; color: #5A7A74; text-decoration: line-through; }
-    .hpc-save { font-size: 9px; font-weight: 800; color: #E8673A; }
+    .hsell { font-size: 12px; font-weight: 700; color: var(--mid); margin-bottom: .875rem; }
+    .hsell a { color: var(--coral); font-weight: 800; cursor: pointer; text-decoration: underline; }
+    .cpills { display: flex; gap: 7px; flex-wrap: wrap; }
+    .cpill { background: rgba(255,255,255,.85); border: 1px solid var(--bdr); border-radius: 99px; padding: 5px 12px; font-family: 'Nunito',sans-serif; font-size: 11px; font-weight: 700; color: var(--dark); cursor: pointer; transition: background .15s; }
+    .cpill:hover { background: white; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+
+    /* ── HERO TILES ── */
+    .htiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .htile { border-radius: 18px; padding: 1.125rem; display: flex; flex-direction: column; }
+    .htile-ic { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
+    .htile-ic i { font-size: 17px; }
+    .htile-name { font-size: 12px; font-weight: 800; line-height: 1.3; margin-bottom: 3px; }
+    .htile-sub { font-size: 10px; font-weight: 600; line-height: 1.4; opacity: .75; }
 
     /* ── TICKER ── */
-    .ticker { background: #1A3C34; padding: .55rem 0; overflow: hidden; display: flex; align-items: center; }
-    .ti-inner { display: flex; gap: 2.5rem; animation: scroll 28s linear infinite; white-space: nowrap; padding-left: 1.5rem; }
+    .ticker { background: var(--dark); padding: .55rem 0; overflow: hidden; display: flex; align-items: center; }
+    .ti-inner { display: flex; gap: 2.5rem; animation: scroll 34s linear infinite; white-space: nowrap; padding-left: 2rem; }
     @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .titem { display: flex; align-items: center; gap: 7px; color: rgba(255,255,255,.8); font-size: 11px; font-weight: 600; flex-shrink: 0; }
-    .tdot { width: 5px; height: 5px; border-radius: 50%; background: #E8673A; flex-shrink: 0; }
+    .titem { display: flex; align-items: center; gap: 7px; color: rgba(255,255,255,.7); font-size: 11px; font-weight: 600; flex-shrink: 0; }
+    .tdot { width: 5px; height: 5px; border-radius: 50%; background: var(--coral); flex-shrink: 0; }
 
     /* ── STATS ── */
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); background: white; border-bottom: 1px solid rgba(0,0,0,.07); }
-    .stat { padding: 1.25rem; text-align: center; }
-    .stat + .stat { border-left: 1px solid rgba(0,0,0,.07); }
-    .stn { font-size: 24px; font-weight: 800; color: #E8673A; }
-    .stl { font-size: 11px; color: #5A7A74; font-weight: 700; margin-top: 3px; }
+    .stats { display: grid; grid-template-columns: repeat(3,1fr); background: white; border-bottom: 1px solid var(--bdr); }
+    .stat { padding: 1.375rem 2rem; text-align: center; }
+    .stat + .stat { border-left: 1px solid var(--bdr); }
+    .stn { font-size: 26px; font-weight: 800; color: var(--coral); }
+    .stl { font-size: 12px; color: var(--muted); font-weight: 700; margin-top: 4px; line-height: 1.4; }
 
-    /* ── SECTIONS / LISTINGS ── */
-    .section { padding: 2.5rem 2rem; }
-    .sh { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 8px; }
-    .sttl { font-size: 20px; font-weight: 800; color: #1A3C34; }
-    .ssub { font-size: 12px; color: #5A7A74; font-weight: 600; margin-top: 4px; }
-    .sall { font-size: 12px; font-weight: 800; color: #E8673A; background: none; border: none; font-family: 'Nunito', sans-serif; cursor: pointer; }
-    .lgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 12px; }
-    .lcard { background: white; border-radius: 14px; overflow: hidden; cursor: pointer; transition: transform .2s, box-shadow .2s; border: 1px solid rgba(0,0,0,.05); }
-    .lcard:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(26,60,52,.12); }
-    .lcard img { width: 100%; height: 145px; object-fit: cover; display: block; background: #FDE8D0; }
-    .lcb { padding: 10px 12px 13px; }
-    .lbr { font-size: 9px; font-weight: 700; color: #5A7A74; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; }
-    .lnm { font-size: 13px; font-weight: 800; color: #1A3C34; line-height: 1.3; margin-bottom: 6px; }
-    .lcrow { display: flex; gap: 5px; margin-bottom: 6px; flex-wrap: wrap; align-items: center; }
-    .cb { font-size: 8px; font-weight: 800; padding: 2px 7px; border-radius: 99px; }
-    .ce { background: #E8F5E0; color: #2D6A1F; }
-    .cl2 { background: #EAF0FD; color: #1A3A8F; }
-    .cg { background: #FEF3E0; color: #7A4F0D; }
-    .lloc { font-size: 8px; color: #5A7A74; font-weight: 700; }
-    .lpr { display: flex; align-items: baseline; gap: 5px; }
-    .lp { font-size: 16px; font-weight: 800; color: #1A3C34; }
-    .lr { font-size: 10px; color: #5A7A74; text-decoration: line-through; }
-    .ls { font-size: 10px; font-weight: 800; color: #E8673A; }
-
-    /* ── SELLER SPOTLIGHT ── */
-    .spotlight { background: #FDE8D0; padding: 2.5rem 2rem; }
-    .sp-inner { display: grid; grid-template-columns: .85fr 1.15fr; gap: 2.5rem; align-items: center; max-width: 900px; }
-    .sp-img-wrap { position: relative; border-radius: 18px; overflow: hidden; }
-    .sp-img-wrap img { width: 100%; height: 340px; object-fit: cover; display: block; background: #e8c8b0; }
-    .sp-img-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(26,60,52,.85)); padding: 1.5rem 1.25rem 1.25rem; }
-    .sp-stats { display: flex; gap: .5rem; flex-wrap: wrap; }
-    .sp-stat { background: rgba(255,255,255,.15); color: white; font-size: 10px; font-weight: 800; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(255,255,255,.25); }
-    .sp-tag { font-size: 11px; font-weight: 800; color: #E8673A; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .625rem; }
-    .sp-quote { font-size: clamp(16px, 2.5vw, 22px); font-weight: 800; color: #1A3C34; line-height: 1.3; margin-bottom: .875rem; font-style: italic; }
-    .sp-body { font-size: 13px; color: #2D5A4F; line-height: 1.7; margin-bottom: 1.125rem; }
-    .sp-name { font-size: 12px; font-weight: 800; color: #1A3C34; margin-bottom: 1.25rem; display: flex; align-items: center; gap: .625rem; }
-    .sp-stars { color: #F59E0B; font-size: 12px; }
-    .sp-cta { background: #E8673A; color: white; border: none; border-radius: 99px; padding: 11px 22px; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; transition: background .15s; }
-    .sp-cta:hover { background: #cf5c30; }
+    /* ── SECTIONS ── */
+    .section { padding: 3rem 2rem; }
+    .section.on-white { background: white; border-top: 1px solid var(--bdr); border-bottom: 1px solid var(--bdr); }
+    .stag { font-size: 11px; font-weight: 800; color: var(--coral); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+    .sttl { font-size: 22px; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .ssub { font-size: 13px; color: var(--mid); line-height: 1.6; }
+    .sh { margin-bottom: 1.5rem; }
+    .sa { font-size: 12px; font-weight: 800; color: var(--coral); background: none; border: none; font-family: 'Nunito',sans-serif; cursor: pointer; }
 
     /* ── HOW IT WORKS ── */
-    .how { background: white; padding: 2.5rem 2rem; border-top: 1px solid rgba(0,0,0,.07); border-bottom: 1px solid rgba(0,0,0,.07); }
-    .steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 12px; margin-top: 1.25rem; }
-    .step { background: #FAF6F0; border-radius: 14px; padding: 1.125rem; }
-    .snum { width: 32px; height: 32px; border-radius: 50%; background: #E8673A; color: white; font-size: 14px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
-    .stit { font-size: 14px; font-weight: 800; color: #1A3C34; margin-bottom: 5px; }
-    .sdesc { font-size: 12px; color: #5A7A74; line-height: 1.6; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin-top: 1.25rem; }
+    .step { background: var(--bg); border-radius: 16px; padding: 1.25rem; border: 1px solid var(--bdr); }
+    .stepbadge { display: inline-block; font-size: 10px; font-weight: 800; color: var(--coral); background: var(--coral-lt); padding: 3px 10px; border-radius: 99px; margin-bottom: 10px; letter-spacing: .06em; }
+    .stit { font-size: 15px; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .sdesc { font-size: 12px; color: var(--mid); line-height: 1.7; }
 
-    /* ── PRICING / MEMBERSHIP ── */
-    .pricing { background: #1A3C34; padding: 2.5rem 2rem; }
-    .pricing-head { text-align: center; margin-bottom: 1.75rem; }
-    .pricing-head h2 { font-size: 22px; font-weight: 800; color: white; }
-    .pricing-head p { font-size: 13px; color: rgba(255,255,255,.55); margin-top: 5px; }
-    .pgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 700px; margin: 0 auto; }
-    .plan { border-radius: 18px; padding: 1.625rem; }
-    .plan-founding { background: white; }
-    .plan-standard { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); }
-    .plan-badge { display: inline-flex; align-items: center; gap: 5px; background: #E8673A; color: white; font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 99px; margin-bottom: .875rem; }
-    .plan-badge.std { background: rgba(255,255,255,.15); color: rgba(255,255,255,.65); }
-    .plan-name { font-size: 14px; font-weight: 800; margin-bottom: .25rem; }
-    .plan-founding .plan-name { color: #1A3C34; }
-    .plan-standard .plan-name { color: rgba(255,255,255,.85); }
-    .plan-price { font-size: 32px; font-weight: 800; margin-bottom: .25rem; }
-    .plan-founding .plan-price { color: #E8673A; }
-    .plan-standard .plan-price { color: rgba(255,255,255,.4); font-size: 22px; margin-top: 5px; }
-    .plan-sub { font-size: 10px; font-weight: 700; margin-bottom: 1.125rem; }
-    .plan-founding .plan-sub { color: #5A7A74; }
-    .plan-standard .plan-sub { color: rgba(255,255,255,.35); }
-    .plan-list { list-style: none; margin-bottom: 1.25rem; }
-    .plan-list li { font-size: 12px; font-weight: 600; padding: 4px 0; display: flex; align-items: center; gap: 7px; }
-    .plan-founding .plan-list li { color: #1A3C34; }
-    .plan-founding .plan-list li::before { content: '✓'; color: #E8673A; font-weight: 800; font-size: 13px; }
-    .plan-standard .plan-list li { color: rgba(255,255,255,.55); }
-    .plan-standard .plan-list li::before { content: '✓'; color: rgba(255,255,255,.25); font-weight: 800; }
-    .plan-btn { width: 100%; border: none; border-radius: 99px; padding: 11px; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; transition: background .15s; }
-    .plan-founding .plan-btn { background: #E8673A; color: white; }
-    .plan-founding .plan-btn:hover { background: #cf5c30; }
-    .plan-standard .plan-btn { background: rgba(255,255,255,.08); color: rgba(255,255,255,.4); cursor: default; }
-    .pspot-info { text-align: center; margin-top: 1.25rem; font-size: 11px; color: rgba(255,255,255,.4); font-weight: 600; }
-    .pspotbar { width: 220px; height: 5px; background: rgba(255,255,255,.1); border-radius: 99px; overflow: hidden; margin: .625rem auto 0; }
-    .pspotfill { height: 100%; background: #E8673A; border-radius: 99px; }
+    /* ── CALCULATOR ── */
+    .calc-section { background: white; padding: 3rem 2rem; border-top: 1px solid var(--bdr); border-bottom: 1px solid var(--bdr); }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; margin-top: 1.5rem; }
+    .calc-label { font-size: 10px; font-weight: 800; color: var(--coral); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; }
+    .cat-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .cat-pill { background: white; border: 1.5px solid rgba(0,0,0,.12); border-radius: 99px; padding: 5px 13px; font-family: 'Nunito',sans-serif; font-size: 11px; font-weight: 700; cursor: pointer; color: var(--mid); transition: all .15s; }
+    .cat-pill.act { border-color: var(--coral); background: var(--coral-lt); color: var(--coral); }
+    .calc-slider-label { font-size: 12px; font-weight: 700; color: var(--dark); margin-bottom: 8px; display: flex; justify-content: space-between; }
+    input[type=range] { width: 100%; accent-color: var(--coral); margin-bottom: 4px; }
+    .calc-range-ends { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); margin-bottom: 1.25rem; }
+    .calc-fact { background: #EAF0FD; border-radius: 12px; padding: .875rem 1rem; font-size: 11px; color: #1A3A8F; line-height: 1.6; }
+    .calc-cards { display: flex; flex-direction: column; gap: 10px; }
+    .calc-card-main { background: var(--coral-lt); border-radius: 16px; padding: 1.25rem; }
+    .clabel { font-size: 10px; font-weight: 800; color: var(--coral); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
+    .calc-big { font-size: 36px; font-weight: 800; color: var(--coral); }
+    .calc-sub { font-size: 11px; color: rgba(200,80,70,.8); font-weight: 600; margin-top: 3px; }
+    .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .calc-card-sm { background: var(--bg); border-radius: 12px; padding: 1rem; border: 1px solid var(--bdr); }
+    .calc-med { font-size: 22px; font-weight: 800; color: var(--dark); margin: 4px 0 2px; }
+    .calc-dis { font-size: 10px; color: var(--muted); margin-top: 10px; line-height: 1.5; font-style: italic; }
 
-    /* ── REVIEWS ── */
-    .reviews { padding: 2.5rem 2rem; background: #FAF6F0; }
-    .rev-head { text-align: center; margin-bottom: 1.375rem; }
-    .rev-head h2 { font-size: 22px; font-weight: 800; color: #1A3C34; }
-    .rev-head p { font-size: 12px; color: #E8673A; font-weight: 700; margin-top: 5px; }
-    .rgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
-    .rcard { background: white; border-radius: 14px; padding: 1.125rem; border: 1px solid rgba(0,0,0,.05); }
-    .rstars { color: #F59E0B; font-size: 14px; letter-spacing: 1px; margin-bottom: 7px; }
-    .rtext { font-size: 12px; color: #2D5A4F; line-height: 1.7; font-style: italic; margin-bottom: 10px; }
-    .rname { font-size: 11px; font-weight: 800; color: #1A3C34; }
+    /* ── EXAMPLE LISTINGS ── */
+    .lgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)); gap: 14px; margin-top: 1.25rem; }
+    .lcard { background: white; border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform .2s, box-shadow .2s; border: 1px solid var(--bdr); }
+    .lcard:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(0,0,0,.08); }
+    .lcard img { width: 100%; height: 150px; object-fit: cover; display: block; background: var(--coral-lt); }
+    .lcb { padding: 10px 13px 14px; }
+    .lexbadge { background: var(--coral-lt); color: var(--coral); font-size: 9px; font-weight: 800; padding: 2px 8px; border-radius: 99px; display: inline-block; margin-bottom: 6px; }
+    .lbr { font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; }
+    .lnm { font-size: 13px; font-weight: 800; color: var(--dark); line-height: 1.3; margin-bottom: 7px; }
+    .lcrow { display: flex; gap: 5px; margin-bottom: 6px; flex-wrap: wrap; align-items: center; }
+    .cb { font-size: 9px; font-weight: 800; padding: 2px 7px; border-radius: 99px; }
+    .ce { background: #E8F5E0; color: #2D6A1F; }
+    .cl2 { background: #EAF0FD; color: #1A3A8F; }
+    .cg { background: #FAF3E0; color: #7A4F0D; }
+    .lloc { font-size: 9px; color: var(--muted); font-weight: 700; }
+    .lpr { display: flex; align-items: baseline; gap: 6px; }
+    .lp { font-size: 16px; font-weight: 800; color: var(--dark); }
+    .lr { font-size: 10px; color: var(--muted); text-decoration: line-through; }
+    .ls { font-size: 10px; font-weight: 800; color: var(--coral); }
+
+    /* ── PARENT QUOTES ── */
+    .quotes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 1.25rem; }
+    .qcard { background: white; border-radius: 16px; padding: 1.375rem; border: 1px solid var(--bdr); }
+    .qmark { font-size: 42px; color: var(--coral-lt); line-height: 1; font-family: Georgia, serif; margin-bottom: 6px; }
+    .qtext { font-size: 13px; color: var(--mid); line-height: 1.7; font-style: italic; margin-bottom: 10px; }
+    .qname { font-size: 12px; font-weight: 800; color: var(--dark); }
+    .qctx { font-size: 10px; color: var(--muted); margin-top: 3px; }
+
+    /* ── FOUNDER ── */
+    .founder-inner { background: var(--bg); border-radius: 20px; padding: 1.875rem; display: grid; grid-template-columns: .25fr .75fr; gap: 1.875rem; align-items: center; margin-top: 1.25rem; }
+    .founder-ava { width: 76px; height: 76px; border-radius: 50%; background: var(--coral-lt); display: flex; align-items: center; justify-content: center; margin: 0 auto; }
+    .founder-ava i { font-size: 30px; color: var(--coral); }
+    .founder-loc { font-size: 10px; font-weight: 800; color: var(--coral); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; text-align: center; margin-top: 8px; }
+    .founder-quote { font-size: 13px; color: var(--mid); line-height: 1.7; font-style: italic; margin-bottom: 10px; }
+    .founder-name { font-size: 12px; font-weight: 800; color: var(--dark); }
+
+    /* ── PRICING ── */
+    .pricing { background: var(--dark); padding: 3rem 2rem; }
+    .pricing-head { text-align: center; margin-bottom: 2rem; }
+    .pricing-head h2 { font-size: 24px; font-weight: 800; color: white; }
+    .pricing-head p { font-size: 13px; color: rgba(255,255,255,.5); margin-top: 6px; }
+    .pgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 720px; margin: 0 auto; }
+    .plan { border-radius: 20px; padding: 1.75rem; }
+    .pf { background: white; }
+    .ps { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); }
+    .pbadge { display: inline-flex; align-items: center; gap: 5px; background: var(--coral); color: white; font-size: 10px; font-weight: 800; padding: 4px 10px; border-radius: 99px; margin-bottom: 1rem; }
+    .pbadge.std { background: rgba(255,255,255,.12); color: rgba(255,255,255,.6); }
+    .pname { font-size: 14px; font-weight: 800; margin-bottom: 3px; }
+    .pf .pname { color: var(--dark); }
+    .ps .pname { color: rgba(255,255,255,.85); }
+    .pprice { font-size: 34px; font-weight: 800; margin-bottom: 3px; }
+    .pf .pprice { color: var(--coral); }
+    .ps .pprice { color: rgba(255,255,255,.3); font-size: 22px; margin-top: 6px; }
+    .psub { font-size: 11px; font-weight: 700; margin-bottom: 1.125rem; }
+    .pf .psub { color: var(--muted); }
+    .ps .psub { color: rgba(255,255,255,.3); }
+    .plist { list-style: none; margin-bottom: 1.375rem; }
+    .plist li { font-size: 12px; font-weight: 600; padding: 4px 0; display: flex; align-items: center; gap: 7px; }
+    .pf .plist li { color: var(--dark); }
+    .pf .plist li::before { content: '✓'; color: var(--coral); font-weight: 800; font-size: 14px; }
+    .ps .plist li { color: rgba(255,255,255,.5); }
+    .ps .plist li::before { content: '✓'; color: rgba(255,255,255,.2); }
+    .pbtn { width: 100%; border: none; border-radius: 99px; padding: 12px; font-family: 'Nunito',sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; transition: background .15s; }
+    .pf .pbtn { background: var(--coral); color: white; }
+    .pf .pbtn:hover { background: #cf5c30; }
+    .ps .pbtn { background: rgba(255,255,255,.08); color: rgba(255,255,255,.35); cursor: default; }
+    .pspot { text-align: center; margin-top: 1.25rem; font-size: 11px; color: rgba(255,255,255,.35); }
+    .pbar { width: 220px; height: 5px; background: rgba(255,255,255,.1); border-radius: 99px; overflow: hidden; margin: .625rem auto 0; }
+    .pbarfill { height: 100%; background: var(--coral); border-radius: 99px; }
+
+    /* ── FAQ ── */
+    .faq-list { border: 1px solid var(--bdr); border-radius: 16px; overflow: hidden; background: white; margin-top: 1.25rem; }
+    .faq-item { border-bottom: 1px solid var(--bdr); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; cursor: pointer; font-weight: 700; font-size: 14px; color: var(--dark); gap: 1rem; }
+    .faq-q:hover { background: var(--bg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .faq-a-inner { padding: 0 1.25rem 1rem; font-size: 13px; color: var(--mid); line-height: 1.7; }
+    .faq-item.open .faq-a { max-height: 300px; }
+    .fchev { transition: transform .2s; flex-shrink: 0; font-size: 16px; color: var(--muted); }
+    .faq-item.open .fchev { transform: rotate(180deg); }
+    .faq-cta { background: var(--coral-lt); border-radius: 14px; padding: 1.125rem 1.375rem; margin-top: 1.125rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
 
     /* ── FOOTER ── */
-    .footer { background: #1E3A35; color: white; padding: 2.5rem 2rem; }
+    .footer { background: #F3EDE8; padding: 2.5rem 2rem; border-top: 1px solid var(--bdr); }
     .fgrid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 1.5rem; }
-    .flogo { font-size: 18px; font-weight: 800; margin-bottom: .5rem; }
-    .flogo b { color: #E8673A; }
-    .fdesc { font-size: 12px; color: rgba(255,255,255,.5); line-height: 1.7; margin-bottom: 6px; }
-    .fcit { font-size: 10px; color: rgba(255,255,255,.3); font-style: italic; }
-    .fct { font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: .625rem; }
-    .flnk { display: block; font-size: 12px; color: rgba(255,255,255,.6); margin-bottom: 5px; cursor: pointer; transition: color .15s; }
-    .flnk:hover { color: white; }
-    .flnk.hl { color: #E8673A; font-weight: 800; }
-    .fbot { border-top: 1px solid rgba(255,255,255,.1); padding-top: 1rem; font-size: 10px; color: rgba(255,255,255,.3); }
+    .flogo-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: .625rem; }
+    .fdesc { font-size: 12px; color: var(--mid); line-height: 1.7; margin-bottom: 6px; }
+    .fcit { font-size: 10px; color: var(--muted); font-style: italic; }
+    .fct { font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: .625rem; }
+    .flnk { display: block; font-size: 12px; color: var(--mid); margin-bottom: 5px; cursor: pointer; transition: color .15s; }
+    .flnk:hover { color: var(--dark); }
+    .flnk.hl { color: var(--coral); font-weight: 800; }
+    .fbot { border-top: 1px solid var(--bdr); padding-top: 1rem; font-size: 11px; color: var(--muted); }
 
     /* ── MODAL ── */
     .moverlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); align-items: center; justify-content: center; padding: 1.5rem; z-index: 1000; }
     .mcard { background: white; border-radius: 22px; padding: 2rem; max-width: 400px; width: 100%; position: relative; box-shadow: 0 24px 60px rgba(0,0,0,.2); animation: slideUp .2s ease; }
     @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    .mtag { font-size: 11px; font-weight: 800; color: #E8673A; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
-    .mh { font-size: 22px; font-weight: 800; color: #1A3C34; line-height: 1.2; margin-bottom: 7px; }
-    .msub { font-size: 13px; color: #5A7A74; margin-bottom: 1.125rem; line-height: 1.6; }
-    .mfbar { background: #FEF0E8; border: 1px solid rgba(232,103,58,.2); border-radius: 11px; padding: .75rem .875rem; margin-bottom: 1.125rem; font-size: 11px; color: #1A3C34; line-height: 1.5; }
-    .mfbar strong { color: #E8673A; }
-    .mlbl { font-size: 13px; font-weight: 700; color: #1A3C34; margin-bottom: 8px; }
+    .mtag { font-size: 11px; font-weight: 800; color: var(--coral); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
+    .mh { font-size: 22px; font-weight: 800; color: var(--dark); line-height: 1.2; margin-bottom: 7px; }
+    .msub { font-size: 13px; color: var(--mid); margin-bottom: 1.125rem; line-height: 1.6; }
+    .mfbar { background: var(--coral-lt); border-radius: 12px; padding: .75rem .875rem; margin-bottom: 1.125rem; font-size: 11px; color: var(--dark); line-height: 1.5; }
+    .mfbar strong { color: var(--coral); }
+    .mlbl { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
     .mrole { display: flex; gap: 8px; margin-bottom: 12px; }
-    .rbtn { flex: 1; padding: 10px; border: 1.5px solid rgba(0,0,0,.12); border-radius: 11px; text-align: center; cursor: pointer; font-size: 13px; font-family: 'Nunito', sans-serif; font-weight: 800; background: white; color: #5A7A74; transition: all .15s; }
-    .rbtn.sel { border-color: #E8673A; background: #FEF0E8; color: #E8673A; }
-    .mi { width: 100%; padding: 11px 14px; border: 1.5px solid rgba(0,0,0,.12); border-radius: 11px; font-family: 'Nunito', sans-serif; font-size: 14px; color: #1A3C34; margin-bottom: 11px; outline: none; transition: border-color .15s; }
-    .mi:focus { border-color: #E8673A; }
-    .mbtn { width: 100%; background: #E8673A; color: white; border: none; border-radius: 11px; padding: 13px; font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800; cursor: pointer; margin-bottom: 8px; transition: background .15s; }
+    .rbtn { flex: 1; padding: 10px; border: 1.5px solid rgba(0,0,0,.12); border-radius: 11px; text-align: center; cursor: pointer; font-size: 13px; font-family: 'Nunito',sans-serif; font-weight: 800; background: white; color: var(--mid); transition: all .15s; }
+    .rbtn.sel { border-color: var(--coral); background: var(--coral-lt); color: var(--coral); }
+    .mi { width: 100%; padding: 11px 14px; border: 1.5px solid rgba(0,0,0,.12); border-radius: 11px; font-family: 'Nunito',sans-serif; font-size: 14px; color: var(--dark); margin-bottom: 11px; outline: none; transition: border-color .15s; }
+    .mi:focus { border-color: var(--coral); }
+    .mbtn { width: 100%; background: var(--coral); color: white; border: none; border-radius: 11px; padding: 13px; font-family: 'Nunito',sans-serif; font-size: 15px; font-weight: 800; cursor: pointer; margin-bottom: 8px; transition: background .15s; }
     .mbtn:hover { background: #cf5c30; }
-    .mdis { font-size: 11px; color: #5A7A74; text-align: center; }
-    .mclose { position: absolute; top: 13px; right: 13px; background: rgba(0,0,0,.06); border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; color: #5A7A74; display: flex; align-items: center; justify-content: center; font-size: 15px; transition: background .15s; }
+    .mdis { font-size: 11px; color: var(--muted); text-align: center; }
+    .mclose { position: absolute; top: 14px; right: 14px; background: rgba(0,0,0,.06); border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; color: var(--mid); display: flex; align-items: center; justify-content: center; font-size: 15px; transition: background .15s; }
     .mclose:hover { background: rgba(0,0,0,.1); }
     .succ { text-align: center; padding: 1rem 0; }
     .sico { width: 56px; height: 56px; border-radius: 50%; background: #E8F5E0; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: #2D6A1F; font-size: 24px; font-weight: 800; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .fbar { flex-direction: column; align-items: flex-start; gap: .5rem; }
       .fbar-r { width: 100%; justify-content: space-between; }
-      .nav { padding: .75rem 1rem; top: 0; }
-      .navl { display: none; }
-      .hero { margin: .875rem .875rem 0; grid-template-columns: 1fr; padding: 1.875rem 1.25rem; }
-      .hero-right { display: none; }
-      .section, .spotlight, .how, .pricing, .reviews, .footer { padding-left: 1.25rem; padding-right: 1.25rem; }
-      .sp-inner { grid-template-columns: 1fr; }
-      .sp-img-wrap img { height: 220px; }
+      .nav { top: 0; }
+      .hero { grid-template-columns: 1fr; padding: 2rem 1.5rem; margin: .875rem .875rem 0; }
+      .htiles { display: none; }
+      .calc-grid { grid-template-columns: 1fr; }
       .pgrid { grid-template-columns: 1fr; }
-      .fgrid { grid-template-columns: 1fr 1fr; }
-      .stats .stn { font-size: 18px; }
+      .fgrid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     }
-    @media (max-width: 480px) {
-      .fgrid { grid-template-columns: 1fr; }
+    @media (max-width: 600px) {
+      .nav { padding: .75rem 1rem; }
+      .navl { display: none; }
+      .section, .calc-section, .pricing, .footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .hero { padding: 1.75rem 1.25rem; }
+      .stats { grid-template-columns: 1fr; }
+      .stat + .stat { border-left: none; border-top: 1px solid var(--bdr); }
       .lgrid { grid-template-columns: repeat(2, 1fr); }
+      .fgrid { grid-template-columns: 1fr; }
+      .founder-inner { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -240,9 +279,9 @@
 
 <!-- FOUNDING BAR -->
 <div class="fbar">
-  <div class="fbar-l">⭐ <span>Founding Member Offer: First 500 sellers join completely free — zero commission, zero fees, forever.</span></div>
+  <div class="fbar-l"><i class="ti ti-star" aria-hidden="true"></i> Founding Member Offer: First 500 sellers join completely free — zero commission, zero fees, forever.</div>
   <div class="fbar-r">
-    <div class="spotwrap">
+    <div style="display:flex;align-items:center;gap:7px">
       <div class="spotbar"><div class="spotfill" id="sfill" style="width:30.6%"></div></div>
       <span class="fspot" id="fspot-txt">347 spots left</span>
     </div>
@@ -253,31 +292,32 @@
 <!-- NAV -->
 <nav class="nav">
   <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    <div class="lc">T</div>
-    <div class="lt">Tot<b>Loop</b><span class="lau">AU</span></div>
+    <div class="logo-ic"><i class="ti ti-refresh" aria-hidden="true"></i></div>
+    <span><span class="logo-tot">tot</span><span class="logo-loop">loop</span></span>
   </div>
   <div class="navl">
-    <span class="act">Discover</span>
-    <span onclick="openModal('browse')">Browse Shop</span>
-    <span onclick="openModal('sell')">Sell An Item</span>
-    <span onclick="openModal('browse')">Buyer Portal</span>
+    <a class="act" onclick="window.scrollTo({top:0,behavior:'smooth'})">Home</a>
+    <a onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">How it Works</a>
+    <a onclick="document.getElementById('calc').scrollIntoView({behavior:'smooth'})">Calculator</a>
+    <a onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">FAQs</a>
   </div>
-  <button class="ncta" onclick="openModal('nav')">Join Waitlist</button>
+  <button class="ncta" onclick="openModal('nav')">Start Looping</button>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div>
-    <div class="hbadge"><i class="ti ti-star" aria-hidden="true"></i> Australia's #1 Kids Marketplace</div>
-    <h1 class="hh1">Give pre-loved <span class="joy">joy</span> a second spin.</h1>
-    <p class="hp">Shop safe, sustainable, and affordable items for your little ones aged 0–8. Verified against national Australian safety regulations.</p>
+    <div class="hbadge"><i class="ti ti-refresh" style="font-size:11px" aria-hidden="true"></i> THE ECO-FRIENDLY GEAR LOOP</div>
+    <h1 style="font-size:clamp(28px,4.5vw,50px);font-weight:800;line-height:1.1;color:var(--dark);margin-bottom:.875rem;letter-spacing:-1.5px">
+      Outgrown,<br>never <span class="joy">outdated.</span>
+    </h1>
+    <p class="hp">Australia's first curated, safety-verified marketplace for pre-loved baby gear. Every listing checked against ACCC recalls before it goes live — so you buy and sell with complete confidence.</p>
     <div class="hsearch" onclick="openModal('browse')" role="button" tabindex="0">
-      <i class="ti ti-search" style="font-size:16px;color:#5A7A74" aria-hidden="true"></i>
-      <input type="text" placeholder="Search strollers, cots, size 2 clothes..." readonly aria-label="Search TotLoop listings">
+      <i class="ti ti-search" style="font-size:16px;color:var(--muted)" aria-hidden="true"></i>
+      <input type="text" placeholder="Search prams, cots, carriers, size 2 clothes..." readonly aria-label="Search TotLoop listings">
       <button class="hfind">Find Gear</button>
     </div>
     <div class="hsell">Are you selling? <a onclick="openModal('sell')">List your first item free →</a></div>
-    <p style="font-size:10px;font-weight:700;color:#2D5A4F;margin-bottom:6px">Browse by category:</p>
     <div class="cpills">
       <button class="cpill" onclick="openModal('browse')">🚼 Prams</button>
       <button class="cpill" onclick="openModal('browse')">🚗 Car Seats</button>
@@ -286,164 +326,251 @@
       <button class="cpill" onclick="openModal('browse')">👕 Clothing</button>
       <button class="cpill" onclick="openModal('browse')">🧸 Toys</button>
     </div>
-    <div class="trust">
-      <span><i class="ti ti-check" style="font-size:11px;color:#E8673A" aria-hidden="true"></i> No hazardous items</span>
-      <span style="color:#E8673A">•</span>
-      <span>8.5% secure escrow</span>
-      <span style="color:#E8673A">•</span>
-      <span><i class="ti ti-check" style="font-size:11px;color:#E8673A" aria-hidden="true"></i> AS/NZS safety audits</span>
-    </div>
   </div>
-  <div class="hero-right">
-    <!-- NOTE: Replace picsum images with real product photos before going live -->
-    <div class="hpc" style="top:0;right:0;transform:rotate(3.5deg)">
-      <img src="https://picsum.photos/seed/bugaboofox3/320/160" alt="Bugaboo Fox 3 Pram" loading="lazy">
-      <div class="hpc-br">Bugaboo</div>
-      <div class="hpc-nm">Fox 3 — Sage Green</div>
-      <div class="hpc-vb"><i class="ti ti-check" style="font-size:8px" aria-hidden="true"></i> ACCC Verified</div>
-      <div class="hpc-pr"><span class="hpc-price">$920</span><span class="hpc-rrp">$2,299</span><span class="hpc-save">60% off</span></div>
+  <div class="htiles">
+    <div class="htile" style="background:#FAEAEA">
+      <div class="htile-ic" style="background:rgba(192,80,80,.15)"><i class="ti ti-star" style="color:#C05050" aria-hidden="true"></i></div>
+      <div class="htile-name" style="color:#C05050">Curated Listings</div>
+      <div class="htile-sub" style="color:#C05050">Hand-reviewed, quality gear only</div>
     </div>
-    <div class="hpc" style="bottom:10px;right:30px;transform:rotate(-2.5deg)">
-      <img src="https://picsum.photos/seed/silvercrossreef/320/160" alt="Silver Cross Reef Pram" loading="lazy">
-      <div class="hpc-br">Silver Cross</div>
-      <div class="hpc-nm">Reef3 — Orbit Grey</div>
-      <div class="hpc-vb"><i class="ti ti-check" style="font-size:8px" aria-hidden="true"></i> ACCC Verified</div>
-      <div class="hpc-pr"><span class="hpc-price">$680</span><span class="hpc-rrp">$1,999</span><span class="hpc-save">66% off</span></div>
+    <div class="htile" style="background:#E8F5E0">
+      <div class="htile-ic" style="background:rgba(45,106,31,.15)"><i class="ti ti-check" style="color:#2D6A1F" aria-hidden="true"></i></div>
+      <div class="htile-name" style="color:#2D6A1F">Safety Verified</div>
+      <div class="htile-sub" style="color:#2D6A1F">ACCC recall checked before listing</div>
+    </div>
+    <div class="htile" style="background:#EAF0FD">
+      <div class="htile-ic" style="background:rgba(26,58,143,.15)"><i class="ti ti-lock" style="color:#1A3A8F" aria-hidden="true"></i></div>
+      <div class="htile-name" style="color:#1A3A8F">Buyer Protected</div>
+      <div class="htile-sub" style="color:#1A3A8F">Secure escrow on every purchase</div>
+    </div>
+    <div class="htile" style="background:#FAF3E0">
+      <div class="htile-ic" style="background:rgba(122,79,13,.15)"><i class="ti ti-refresh" style="color:#7A4F0D" aria-hidden="true"></i></div>
+      <div class="htile-name" style="color:#7A4F0D">Zero Waste</div>
+      <div class="htile-sub" style="color:#7A4F0D">Keep gear out of landfill</div>
     </div>
   </div>
 </div>
 
-<!-- ACTIVITY TICKER -->
+<!-- TICKER -->
 <div class="ticker"><div class="ti-inner" id="ticker"></div></div>
 
 <!-- STATS -->
 <div class="stats">
-  <div class="stat"><div class="stn">3,400+</div><div class="stl">Items listed to date</div></div>
-  <div class="stat"><div class="stn">$1.2M+</div><div class="stl">Saved by Aussie families</div></div>
-  <div class="stat"><div class="stn">100%</div><div class="stl">ACCC recall verified</div></div>
-</div>
-
-<!-- LISTINGS -->
-<div class="section">
-  <div class="sh">
-    <div><div class="sttl">Just Listed Near You</div><div class="ssub">Fresh additions, every one safety-checked before going live</div></div>
-    <button class="sall" onclick="openModal('browse')">See all listings →</button>
-  </div>
-  <div class="lgrid" id="lgrid"></div>
-</div>
-
-<!-- SELLER SPOTLIGHT -->
-<div class="spotlight">
-  <div style="margin-bottom:1.25rem">
-    <div class="sttl">Seller Spotlight</div>
-    <div class="ssub">Real parents, real results</div>
-  </div>
-  <div class="sp-inner">
-    <div class="sp-img-wrap">
-      <!-- NOTE: Replace with a real seller/lifestyle photo -->
-      <img src="https://picsum.photos/seed/seller-emma-qld/400/520" alt="Emma, Paddington QLD — TotLoop seller" loading="lazy">
-      <div class="sp-img-overlay">
-        <div class="sp-stats">
-          <span class="sp-stat">2 items sold</span>
-          <span class="sp-stat">$1,580 earned</span>
-          <span class="sp-stat">72 hrs to sell</span>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="sp-tag">⭐ Top Seller · Paddington QLD</div>
-      <div class="sp-quote">"I had two prams sitting in the garage. TotLoop turned them into $1,580 in 3 days."</div>
-      <div class="sp-body">Emma's youngest had outgrown both her Bugaboo Fox 3 and Silver Cross Reef3 within months of each other. After two failed Facebook Marketplace no-shows, she listed both on TotLoop. The moderation team handled the safety checks, both listings went live within 24 hours, and both sold to verified buyers by the end of the week — no cash negotiations, no strangers at the front door without a confirmed booking.</div>
-      <div class="sp-name">— Emma T., Paddington QLD <span class="sp-stars">★★★★★</span></div>
-      <button class="sp-cta" onclick="openModal('sell')">Start selling your gear →</button>
-    </div>
-  </div>
+  <div class="stat"><div class="stn">85%</div><div class="stl">of baby gear ends up in landfill within 12 months of purchase</div></div>
+  <div class="stat"><div class="stn">$3,000+</div><div class="stl">spent by the average Australian family on gear in year one</div></div>
+  <div class="stat"><div class="stn">~60%</div><div class="stl">average saving vs RRP on quality used gear through TotLoop</div></div>
 </div>
 
 <!-- HOW IT WORKS -->
-<div class="how">
-  <div class="sh"><div class="sttl">How TotLoop Works</div></div>
+<div class="section on-white" id="how">
+  <div class="sh">
+    <div class="stag">SIMPLE CIRCULAR MARKETPLACE</div>
+    <div class="sttl">How Looping Works</div>
+    <div class="ssub">No more Marketplace no-shows. No more lowballers. Just safe, simple gear exchange.</div>
+  </div>
   <div class="steps">
     <div class="step">
-      <div class="snum">1</div>
-      <div class="stit">Sellers List</div>
-      <div class="sdesc">Fill in item details, condition grade, and full safety history in minutes.</div>
+      <div class="stepbadge">STEP 01</div>
+      <div class="stit">List your gear</div>
+      <div class="sdesc">Fill in item details, condition, age, and safety history. Our team reviews every listing against the ACCC recall register before it goes live.</div>
     </div>
     <div class="step">
-      <div class="snum">2</div>
-      <div class="stit">We Verify</div>
-      <div class="sdesc">Every listing cross-checked against the live ACCC recall register before going live.</div>
+      <div class="stepbadge">STEP 02</div>
+      <div class="stit">Connect safely</div>
+      <div class="sdesc">Verified buyers find your listing, message you through TotLoop, and purchase through secure escrow. No cash, no strangers turning up unconfirmed.</div>
     </div>
     <div class="step">
-      <div class="snum">3</div>
-      <div class="stit">Buyers Shop Safely</div>
-      <div class="sdesc">Secure escrow holds payment until the buyer confirms receipt. No surprises.</div>
+      <div class="stepbadge">STEP 03</div>
+      <div class="stit">Get paid, give back</div>
+      <div class="sdesc">Once the buyer confirms receipt, funds are released to you. Another family gets quality gear at a fair price. Everyone wins.</div>
     </div>
   </div>
 </div>
 
-<!-- PRICING / MEMBERSHIP -->
+<!-- SAVINGS CALCULATOR -->
+<div class="calc-section" id="calc">
+  <div class="stag">INTERACTIVE CALCULATOR</div>
+  <div class="sttl">See what your unused gear is worth</div>
+  <div class="ssub">Adjust below to estimate your earnings as a TotLoop seller. Based on average Australian resale market prices.</div>
+  <div class="calc-grid">
+    <div>
+      <div class="calc-label">What are you selling?</div>
+      <div class="cat-pills">
+        <button class="cat-pill act" onclick="setCat(this,'mixed')">Mixed gear</button>
+        <button class="cat-pill" onclick="setCat(this,'pram')">Prams</button>
+        <button class="cat-pill" onclick="setCat(this,'seat')">Car seats</button>
+        <button class="cat-pill" onclick="setCat(this,'cot')">Cots</button>
+        <button class="cat-pill" onclick="setCat(this,'clothing')">Clothing</button>
+      </div>
+      <div class="calc-label">Number of items</div>
+      <div class="calc-slider-label"><span>How many items?</span><span id="qs" style="color:var(--coral)">5 items</span></div>
+      <input type="range" min="1" max="15" value="5" step="1" id="qty-s" oninput="setQty(this.value)">
+      <div class="calc-range-ends"><span>1 item</span><span>15 items</span></div>
+      <div class="calc-fact"><strong>Circular Fact:</strong> Over 85% of purchased baby gear ends up in landfill or attic storage within a year of being outgrown. TotLoop keeps it in circulation.</div>
+    </div>
+    <div class="calc-cards">
+      <div class="calc-card-main">
+        <div class="clabel">💰 Your estimated earnings</div>
+        <div class="calc-big" id="ce">$1,250</div>
+        <div class="calc-sub">after 8.5% TotLoop commission · founding members pay zero</div>
+      </div>
+      <div class="calc-row">
+        <div class="calc-card-sm">
+          <div class="calc-label" style="font-size:9px">BUYER SAVES</div>
+          <div class="calc-med" id="cs">~60%</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">vs buying new</div>
+        </div>
+        <div class="calc-card-sm">
+          <div class="calc-label" style="font-size:9px">FROM LANDFILL</div>
+          <div class="calc-med" id="ci">5 items</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">kept in use</div>
+        </div>
+      </div>
+      <div class="calc-dis">Estimates based on average Australian resale market prices. Actual results may vary.</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXAMPLE LISTINGS -->
+<div class="section">
+  <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:.25rem">
+    <div>
+      <div class="stag">EXAMPLE LISTINGS</div>
+      <div class="sttl">The kind of gear you'll find on TotLoop</div>
+      <div class="ssub">Illustrative examples only — not live listings. Real listings appear once we launch.</div>
+    </div>
+    <button class="sa" onclick="openModal('browse')">Join to be first →</button>
+  </div>
+  <!-- NOTE: Replace picsum.photos URLs with real product photos before sharing widely -->
+  <div class="lgrid" id="lgrid"></div>
+</div>
+
+<!-- WHAT PARENTS TOLD US -->
+<div class="section on-white">
+  <div class="sh">
+    <div class="stag">PARENT RESEARCH</div>
+    <div class="sttl">What parents told us</div>
+    <div class="ssub">Before building TotLoop, we spoke with dozens of Australian parents about buying and selling baby gear. Here's what came up again and again.</div>
+  </div>
+  <div class="quotes-grid">
+    <div class="qcard">
+      <div class="qmark">"</div>
+      <div class="qtext">Every time I listed something on Facebook Marketplace I'd get three no-shows and someone trying to lowball me at the last minute. There has to be a better way.</div>
+      <div class="qname">Parent, Adelaide SA</div>
+      <div class="qctx">Trying to sell a Bugaboo pram for 6 months</div>
+    </div>
+    <div class="qcard">
+      <div class="qmark">"</div>
+      <div class="qtext">I'd buy secondhand gear all day long if I could trust it hadn't been recalled. That's the one thing that stops me every time I go to pull the trigger on Gumtree.</div>
+      <div class="qname">Parent, Melbourne VIC</div>
+      <div class="qctx">First-time mum researching secondhand cots</div>
+    </div>
+    <div class="qcard">
+      <div class="qmark">"</div>
+      <div class="qtext">I have $2,000 worth of gear sitting in the garage that I just haven't gotten around to selling. If someone made it easy and safe, I'd have listed it a year ago.</div>
+      <div class="qname">Parent, Brisbane QLD</div>
+      <div class="qctx">Two kids, garage full of outgrown gear</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY WE'RE BUILDING THIS -->
+<div class="section">
+  <div class="sh">
+    <div class="stag">WHY WE'RE BUILDING THIS</div>
+    <div class="sttl">A marketplace that actually earns trust</div>
+  </div>
+  <div class="founder-inner">
+    <div style="text-align:center">
+      <div class="founder-ava"><i class="ti ti-user" style="font-size:30px;color:var(--coral)" aria-hidden="true"></i></div>
+      <div class="founder-loc">Adelaide, SA</div>
+    </div>
+    <div>
+      <div class="founder-quote">"We kept seeing the same problem: quality gear sitting unused in garages, recalled items quietly circulating on Marketplace, and parents who wanted to do the right thing but had no trustworthy way to do it. TotLoop is our answer to that — a marketplace built on verification first, community second, and commerce third."</div>
+      <div class="founder-name">Alex & Team, TotLoop · Adelaide SA</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
 <div class="pricing">
   <div class="pricing-head">
     <h2>Simple, honest pricing</h2>
-    <p>We're rewarding the parents who back us early.</p>
+    <p>Rewarding the parents who back us early.</p>
   </div>
   <div class="pgrid">
-    <div class="plan plan-founding">
-      <div class="plan-badge">⭐ Founding Member · <span id="plan-spots">347 left</span></div>
-      <div class="plan-name">Founding Member</div>
-      <div class="plan-price">Free</div>
-      <div class="plan-sub">Forever. No catches.</div>
-      <ul class="plan-list">
+    <div class="plan pf">
+      <div class="pbadge"><i class="ti ti-star" style="font-size:10px" aria-hidden="true"></i> Founding Member · <span id="plan-spots">347 left</span></div>
+      <div class="pname">Founding Member</div>
+      <div class="pprice">Free</div>
+      <div class="psub">Forever. No catches.</div>
+      <ul class="plist">
         <li>Zero commission on all sales</li>
         <li>No subscription fees, ever</li>
         <li>Priority listing placement</li>
         <li>Founding Member badge on profile</li>
         <li>First access to new features</li>
       </ul>
-      <button class="plan-btn" onclick="openModal('founding')">Claim your founding spot →</button>
+      <button class="pbtn" onclick="openModal('founding')">Claim your founding spot →</button>
     </div>
-    <div class="plan plan-standard">
-      <div class="plan-badge std">Standard Member</div>
-      <div class="plan-name">Standard</div>
-      <div class="plan-price">Coming soon</div>
-      <div class="plan-sub">Pricing announced at launch</div>
-      <ul class="plan-list">
-        <li>Commission-based per sale</li>
-        <li>Monthly or annual subscription</li>
+    <div class="plan ps">
+      <div class="pbadge std">Standard Member</div>
+      <div class="pname">Standard</div>
+      <div class="pprice">Coming soon</div>
+      <div class="psub">Pricing TBC at launch</div>
+      <ul class="plist">
+        <li>Commission per sale</li>
+        <li>Monthly or annual option</li>
         <li>Full platform access</li>
-        <li>Buyer protection on all orders</li>
+        <li>Buyer protection included</li>
         <li>ACCC verified listings</li>
       </ul>
-      <button class="plan-btn">Notify me at launch</button>
+      <button class="pbtn">Notify me at launch</button>
     </div>
   </div>
-  <div class="pspot-info">153 of 500 founding spots claimed</div>
-  <div class="pspotbar"><div class="pspotfill" style="width:30.6%"></div></div>
+  <div class="pspot">153 of 500 founding spots claimed</div>
+  <div class="pbar"><div class="pbarfill" id="pbarfill" style="width:30.6%"></div></div>
 </div>
 
-<!-- REVIEWS -->
-<div class="reviews">
-  <div class="rev-head">
-    <h2>Loved by Australian Parents</h2>
-    <p>Real reviews from our Melbourne, Sydney & Brisbane families</p>
+<!-- FAQ -->
+<div class="section" id="faq">
+  <div class="sh">
+    <div class="stag">YOUR QUESTIONS ANSWERED</div>
+    <div class="sttl">Frequently Asked Questions</div>
+    <div class="ssub">Everything you need to know before joining the loop.</div>
   </div>
-  <div class="rgrid">
-    <div class="rcard">
-      <div class="rstars">★★★★★</div>
-      <div class="rtext">"Purchased a Bugaboo stroller for half price. The stroller was cleaned and sanitised exactly as promised. Our newborn absolutely loves it!"</div>
-      <div class="rname">— Rebecca, Kew VIC</div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">How does TotLoop verify listings?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
+      <div class="faq-a"><div class="faq-a-inner">Every listing is manually reviewed against the ACCC product safety recalls register before it goes live. Sellers must declare the item's condition, age, and any known safety history. Items flagged on the recall register are removed immediately and the seller is notified.</div></div>
     </div>
-    <div class="rcard">
-      <div class="rstars">★★★★★</div>
-      <div class="rtext">"Selling clothes on TotLoop was super smooth! Got rid of 3 bags of toddler jumpers in under a week. The commission calculator told me exactly what I'd earn."</div>
-      <div class="rname">— Marcus, Balmain NSW</div>
+    <div class="faq-item">
+      <div class="faq-q">What items can I list on TotLoop?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
+      <div class="faq-a"><div class="faq-a-inner">Prams and strollers, car seats (under 10 years old), cots and nursery furniture, baby carriers, clothing 0–8 years, and toys. Items currently on the ACCC recall register or prohibited under Australian Consumer Law cannot be listed. Full prohibited items list available in our safety policy.</div></div>
     </div>
-    <div class="rcard">
-      <div class="rstars">★★★★★</div>
-      <div class="rtext">"Knowing that car seats older than 10 years are actively filtered out makes me trust TotLoop above any other general portal."</div>
-      <div class="rname">— Claire, Byron Bay NSW</div>
+    <div class="faq-item">
+      <div class="faq-q">Is my payment protected if something goes wrong?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
+      <div class="faq-a"><div class="faq-a-inner">Yes. All payments go through secure escrow, held until the buyer confirms the item was received as described. If there's a dispute, our team steps in to resolve it. Buyers are never left exposed on TotLoop.</div></div>
     </div>
+    <div class="faq-item">
+      <div class="faq-q">When is TotLoop launching?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
+      <div class="faq-a"><div class="faq-a-inner">We're currently building our founding member community ahead of launch. The first 500 sellers join completely free. Everyone on the waitlist will be personally notified before we go live — you won't miss it.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What does it cost to sell on TotLoop?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
+      <div class="faq-a"><div class="faq-a-inner">Founding members — the first 500 sellers — pay zero commission forever. No subscription, no per-listing fees, no hidden charges. Standard member pricing will be announced at launch. Founding spots are limited and filling fast.</div></div>
+    </div>
+    <div class="faq-item" style="border-bottom:none">
+      <div class="faq-q">What about local pickup — how does escrow work?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
+      <div class="faq-a"><div class="faq-a-inner">For local pickups, TotLoop holds payment in escrow until the buyer confirms the item is as described after inspecting it in person. This protects both parties without requiring shipping — and eliminates cash transactions with unverified strangers.</div></div>
+    </div>
+  </div>
+  <div class="faq-cta">
+    <div>
+      <div style="font-size:15px;font-weight:800;color:var(--dark)">Still curious?</div>
+      <div style="font-size:12px;color:var(--mid);margin-top:3px">Reach us at <a href="mailto:hello@totloop.com.au" style="color:var(--coral);font-weight:700">hello@totloop.com.au</a> — we reply within 2 hours.</div>
+    </div>
+    <button style="background:var(--coral);color:white;border:none;border-radius:99px;padding:9px 18px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;cursor:pointer" onclick="openModal('nav')">Join the waitlist →</button>
   </div>
 </div>
 
@@ -451,46 +578,44 @@
 <div class="footer">
   <div class="fgrid">
     <div>
-      <div class="flogo">Tot<b>Loop</b> Australia</div>
-      <div class="fdesc">Premium secondhand marketplace for pre-loved nursery items, toys, and outfits. Built for Australian mums, dads, and future loopers.</div>
+      <div class="flogo-wrap">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--coral-lt);display:flex;align-items:center;justify-content:center"><i class="ti ti-refresh" style="font-size:13px;color:var(--coral)" aria-hidden="true"></i></div>
+        <span><span class="logo-tot" style="font-size:15px">tot</span><span class="logo-loop" style="font-size:19px">loop</span></span>
+      </div>
+      <div class="fdesc">Premium secondhand marketplace for pre-loved nursery items, prams, and gear. Built for Australian mums, dads, and future loopers.</div>
       <div class="fcit">Melbourne · Sydney · Brisbane · Adelaide</div>
     </div>
     <div>
-      <div class="fct">Safety Inspections</div>
+      <div class="fct">Safety</div>
       <a class="flnk">Child Safety Handbook (AS 2088)</a>
       <a class="flnk">ACCC Prohibited Blacklist</a>
-      <a class="flnk">Secure Escrow Commission Logic</a>
+      <a class="flnk">Secure Escrow Logic</a>
     </div>
     <div>
       <div class="fct">Information</div>
-      <a class="flnk">About Us (Our Story)</a>
-      <a class="flnk">Frequently Asked FAQ</a>
-      <a class="flnk">Contact Parental Support</a>
+      <a class="flnk">About Us</a>
+      <a class="flnk">FAQ</a>
+      <a class="flnk" href="mailto:hello@totloop.com.au">Contact Support</a>
     </div>
     <div>
-      <div class="fct">Compliance</div>
-      <a class="flnk">Terms of Services & Conditions</a>
-      <a class="flnk">Australian Privacy Principles</a>
-      <a class="flnk hl">Enterprise Admin Login</a>
+      <div class="fct">Legal</div>
+      <a class="flnk">Terms of Service</a>
+      <a class="flnk">Privacy Policy</a>
+      <a class="flnk hl">Admin Login</a>
     </div>
   </div>
   <div class="fbot">© 2025 TotLoop Australia Pty Ltd · Made with care in Adelaide, SA</div>
 </div>
 
 <!-- MODAL -->
-<div class="moverlay" id="mv" role="dialog" aria-modal="true" aria-labelledby="mh">
+<div class="moverlay" id="mv" role="dialog" aria-modal="true">
   <div class="mcard">
-    <button class="mclose" onclick="closeModal()" aria-label="Close modal">
-      <i class="ti ti-x" style="font-size:14px" aria-hidden="true"></i>
-    </button>
+    <button class="mclose" onclick="closeModal()" aria-label="Close modal"><i class="ti ti-x" aria-hidden="true"></i></button>
     <div id="md">
       <div class="mtag" id="mtag">Coming soon</div>
       <div class="mh" id="mh">TotLoop isn't live yet.</div>
-      <div class="msub" id="msub">Be the first to know when we launch in your city. Join the waitlist — it takes 10 seconds.</div>
-      <div class="mfbar">
-        ⭐ <strong>Founding Member Offer:</strong> First 500 sellers join free — no fees, ever.
-        <strong id="mspot-txt"> 347 spots remaining.</strong>
-      </div>
+      <div class="msub" id="msub">Be the first to know when we launch in your city. Takes 10 seconds.</div>
+      <div class="mfbar">⭐ <strong>Founding Member Offer:</strong> First 500 sellers join free — no fees, ever. <strong id="mspot-txt"> 347 spots remaining.</strong></div>
       <div class="mlbl">I'm a:</div>
       <div class="mrole">
         <div class="rbtn sel" id="rb1" onclick="sr('buyer')" role="radio" aria-checked="true" tabindex="0">🛒 Buyer</div>
@@ -512,70 +637,100 @@
 </div>
 
 <script>
+  /* ── TALLY INTEGRATION ──────────────────────────────────────────────────────
+     STEP 1: Create your form at tally.so (email field hidden, role + founding as hidden fields)
+     STEP 2: Paste your form ID here — the code after /r/ in your Tally URL
+     Example: if your URL is tally.so/r/w4xyz1, your ID is w4xyz1
+  ─────────────────────────────────────────────────────────────────────────── */
+  const TALLY_FORM_ID = 'YOUR_TALLY_FORM_ID'; // ← Replace this
+
   /* ── STATE ── */
   let spots = 347;
   let role = 'buyer';
 
-  /* ── LISTINGS DATA ── */
-  /* NOTE: Replace seed images with real product photos before launch */
+  /* ── CALCULATOR ── */
+  const CAT_AVG  = { mixed: 272, pram: 650, seat: 280, cot: 180, clothing: 55 };
+  const CAT_SAVE = { mixed: 60,  pram: 63,  seat: 52,  cot: 56,  clothing: 67 };
+  let calcCat = 'mixed', calcQty = 5;
+
+  function calcUpdate() {
+    const earn = Math.round(CAT_AVG[calcCat] * calcQty * 0.915 / 10) * 10;
+    document.getElementById('ce').textContent = '$' + earn.toLocaleString();
+    document.getElementById('cs').textContent = '~' + CAT_SAVE[calcCat] + '%';
+    document.getElementById('ci').textContent = calcQty + (calcQty === 1 ? ' item' : ' items');
+    document.getElementById('qs').textContent = calcQty + (calcQty === 1 ? ' item' : ' items');
+  }
+  function setQty(v) { calcQty = parseInt(v); calcUpdate(); }
+  function setCat(el, cat) {
+    document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('act'));
+    el.classList.add('act');
+    calcCat = cat;
+    calcUpdate();
+  }
+
+  /* ── LISTINGS ── */
+  /* NOTE: Replace seed values with real product photo URLs when available */
   const listings = [
-    { b:'Silver Cross', n:'Reef3 — Orbit Grey',  c:'Excellent', cls:'ce',  price:680,  rrp:1999, loc:'Norwood SA',      seed:'sc-pram-orbit'    },
-    { b:'Ergobaby',    n:'Omni 360 Carrier',      c:'Like New',  cls:'cl2', price:175,  rrp:379,  loc:'Richmond VIC',    seed:'ergo-baby-carrier' },
-    { b:'IKEA',        n:'SUNDVIK Cot + Mattress', c:'Good',      cls:'cg',  price:110,  rrp:399,  loc:'Surry Hills NSW', seed:'ikea-cot-white'    },
-    { b:'Bugaboo',     n:'Fox 3 — Sage Green',    c:'Excellent', cls:'ce',  price:920,  rrp:2299, loc:'Paddington QLD',  seed:'bugaboo-sage-fox'  },
-    { b:'UPPAbaby',    n:'MESA V2 Car Seat',       c:'Like New',  cls:'cl2', price:290,  rrp:599,  loc:'Glenelg SA',     seed:'uppababy-mesa-v2'  },
-    { b:'BabyBjörn',  n:'Bouncer Bliss',           c:'Good',      cls:'cg',  price:130,  rrp:329,  loc:'Cottesloe WA',   seed:'bjorn-bouncer-bliss'}
+    { b:'Silver Cross', n:'Reef3 — Orbit Grey',  c:'Excellent', cls:'ce',  price:680, rrp:1999, loc:'Norwood SA',      seed:'sc-pram-orbit'     },
+    { b:'Ergobaby',     n:'Omni 360 Carrier',     c:'Like New',  cls:'cl2', price:175, rrp:379,  loc:'Richmond VIC',    seed:'ergo-baby-c'       },
+    { b:'IKEA',         n:'SUNDVIK Cot + Mattress',c:'Good',     cls:'cg',  price:110, rrp:399,  loc:'Surry Hills NSW', seed:'ikea-cot-white'    },
+    { b:'Bugaboo',      n:'Fox 3 — Sage Green',   c:'Excellent', cls:'ce',  price:920, rrp:2299, loc:'Paddington QLD',  seed:'bugaboo-sage-fox'  },
+    { b:'UPPAbaby',     n:'MESA V2 Car Seat',      c:'Like New',  cls:'cl2', price:290, rrp:599,  loc:'Glenelg SA',     seed:'uppababy-mesa-v2'  },
+    { b:'BabyBjörn',   n:'Bouncer Bliss',          c:'Good',      cls:'cg',  price:130, rrp:329,  loc:'Cottesloe WA',   seed:'bjorn-bouncer'     }
   ];
 
-  /* ── RENDER LISTINGS ── */
   document.getElementById('lgrid').innerHTML = listings.map(l => `
-    <div class="lcard" onclick="openModal('listing')" role="button" tabindex="0" aria-label="View ${l.n}">
-      <img src="https://picsum.photos/seed/${l.seed}/400/290" alt="${l.n}" loading="lazy" onerror="this.style.background='#FDE8D0';this.style.height='145px'">
+    <div class="lcard" onclick="openModal('listing')" role="button" tabindex="0" aria-label="View example listing: ${l.n}">
+      <img src="https://picsum.photos/seed/${l.seed}/400/300" alt="${l.n}" loading="lazy" onerror="this.style.background='#FAEAEA';this.style.height='150px'">
       <div class="lcb">
+        <div class="lexbadge">Example listing</div>
         <div class="lbr">${l.b}</div>
         <div class="lnm">${l.n}</div>
-        <div class="lcrow">
-          <span class="cb ${l.cls}">${l.c}</span>
-          <span class="lloc">${l.loc}</span>
-        </div>
-        <div class="lpr">
-          <span class="lp">$${l.price}</span>
-          <span class="lr">$${l.rrp}</span>
-          <span class="ls">${Math.round((1 - l.price / l.rrp) * 100)}% off</span>
-        </div>
+        <div class="lcrow"><span class="cb ${l.cls}">${l.c}</span><span class="lloc">${l.loc}</span></div>
+        <div class="lpr"><span class="lp">$${l.price}</span><span class="lr">$${l.rrp}</span><span class="ls">${Math.round((1 - l.price / l.rrp) * 100)}% off</span></div>
       </div>
     </div>`).join('');
 
-  /* ── RENDER TICKER ── */
+  /* ── TICKER ── */
   const ticks = [
-    'Emma in Sydney just listed a Bugaboo Fox 3',
-    'Liam in Melbourne purchased an Ergobaby carrier — saved $204',
-    'Sarah in Brisbane saved $1,340 on a Silver Cross Reef3',
-    'Jake in Adelaide listed an IKEA SUNDVIK cot + mattress',
-    'Mia in Perth just claimed a founding spot',
-    '3,400+ items listed — all ACCC recall verified',
-    'Tom in QLD sold 4 items in 72 hours',
-    'Only 347 founding spots remaining — claim yours free'
+    '85% of baby clothing ends in landfill within 12 months — TotLoop keeps it circulating',
+    'Babies outgrow 7 clothing sizes in their first 2 years of life',
+    'CHOICE found recalled portacots still listed on Gumtree in 2024',
+    'Australian parents spend an average of $3,000+ on baby gear in year one',
+    'The average unused pram in Australia has been sitting idle for 2+ years',
+    'A $2,000 pram bought new loses 60%+ of its value within 18 months',
+    'Every listing on TotLoop is cross-checked against the ACCC recall register'
   ];
-  const doubled = [...ticks, ...ticks];
-  document.getElementById('ticker').innerHTML = doubled.map(t =>
+  const td = [...ticks, ...ticks];
+  document.getElementById('ticker').innerHTML = td.map(t =>
     `<span class="titem"><span class="tdot"></span>${t}</span>`
   ).join('');
+
+  /* ── FAQ ACCORDION ── */
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
 
   /* ── SPOT COUNTER ── */
   function updateSpots() {
     const taken = 500 - spots;
     const pct = (taken / 500 * 100).toFixed(1);
-    document.getElementById('fspot-txt').textContent = spots + ' spots left';
-    document.getElementById('plan-spots').textContent = spots + ' left';
-    document.getElementById('mspot-txt').textContent = ' ' + spots + ' spots remaining.';
-    document.getElementById('sfill').style.width = pct + '%';
+    document.getElementById('fspot-txt').textContent   = spots + ' spots left';
+    document.getElementById('plan-spots').textContent  = spots + ' left';
+    document.getElementById('mspot-txt').textContent   = ' ' + spots + ' spots remaining.';
+    document.getElementById('sfill').style.width       = pct + '%';
+    document.getElementById('pbarfill').style.width    = pct + '%';
   }
 
   /* ── ROLE TOGGLE ── */
   function sr(r) {
     role = r;
-    document.getElementById('rb1').className = r === 'buyer' ? 'rbtn sel' : 'rbtn';
+    document.getElementById('rb1').className = r === 'buyer'  ? 'rbtn sel' : 'rbtn';
     document.getElementById('rb2').className = r === 'seller' ? 'rbtn sel' : 'rbtn';
     document.getElementById('rb1').setAttribute('aria-checked', r === 'buyer');
     document.getElementById('rb2').setAttribute('aria-checked', r === 'seller');
@@ -592,16 +747,16 @@
     if (src === 'sell' || src === 'founding') {
       sr('seller');
       document.getElementById('mtag').textContent = 'Founding Member Offer';
-      document.getElementById('mh').textContent = 'Claim your free spot.';
+      document.getElementById('mh').textContent   = 'Claim your free spot.';
       document.getElementById('msub').textContent = 'First 500 sellers join TotLoop completely free — zero commission, zero subscription fees, forever.';
     } else {
       sr('buyer');
       document.getElementById('mtag').textContent = 'Coming soon';
-      document.getElementById('mh').textContent = "TotLoop isn't live yet.";
-      document.getElementById('msub').textContent = 'Be the first to know when we launch in your city. Join the waitlist — it takes 10 seconds.';
+      document.getElementById('mh').textContent   = "TotLoop isn't live yet.";
+      document.getElementById('msub').textContent = 'Be the first to know when we launch in your city. Takes 10 seconds.';
     }
 
-    mv.addEventListener('click', handleOverlayClick);
+    mv.addEventListener('click', handleOverlay);
     document.addEventListener('keydown', handleEsc);
   }
 
@@ -610,36 +765,39 @@
     document.removeEventListener('keydown', handleEsc);
   }
 
-  function handleOverlayClick(e) {
-    if (e.target === document.getElementById('mv')) closeModal();
-  }
-
-  function handleEsc(e) {
-    if (e.key === 'Escape') closeModal();
-  }
+  function handleOverlay(e) { if (e.target === document.getElementById('mv')) closeModal(); }
+  function handleEsc(e)     { if (e.key === 'Escape') closeModal(); }
 
   /* ── SUBMIT ── */
   function sub() {
     const ei = document.getElementById('ei');
-    if (!ei.value || !ei.value.includes('@')) {
-      ei.style.borderColor = '#E24B4A';
-      ei.focus();
-      return;
+    if (!ei.value || !ei.value.includes('@')) { ei.style.borderColor = '#E24B4A'; ei.focus(); return; }
+
+    const emailVal = ei.value;
+    const roleVal  = role;
+
+    if (roleVal === 'seller' && spots > 0) { spots--; updateSpots(); }
+
+    closeModal();
+
+    if (typeof Tally !== 'undefined' && TALLY_FORM_ID !== 'YOUR_TALLY_FORM_ID') {
+      Tally.openPopup(TALLY_FORM_ID, {
+        layout: 'modal',
+        width: 480,
+        autoClose: 3000,
+        hiddenFields: {
+          email:    emailVal,
+          role:     roleVal,
+          founding: roleVal === 'seller' ? 'yes' : 'no'
+        }
+      });
+    } else if (TALLY_FORM_ID !== 'YOUR_TALLY_FORM_ID') {
+      const params = new URLSearchParams({ email: emailVal, role: roleVal, founding: roleVal === 'seller' ? 'yes' : 'no' });
+      window.open(`https://tally.so/r/${TALLY_FORM_ID}?${params.toString()}`, '_blank');
     }
-
-    if (role === 'seller' && spots > 0) {
-      spots--;
-      updateSpots();
-    }
-
-    document.getElementById('msh').textContent = role === 'seller' ? 'Founding spot claimed!' : "You're on the list!";
-    document.getElementById('mss').textContent = role === 'seller'
-      ? "You're in. As a founding member, you'll never pay commission or subscription fees on TotLoop. We'll be in touch before launch."
-      : "We'll reach out the moment TotLoop launches near you. Thanks for supporting something better for Australian parents.";
-
-    document.getElementById('md').style.display = 'none';
-    document.getElementById('ms').style.display = 'block';
   }
+
+  calcUpdate();
 </script>
 </body>
 </html>
