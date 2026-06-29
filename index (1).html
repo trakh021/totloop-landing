@@ -521,7 +521,7 @@
   /* ── LISTINGS DATA ── */
   /* NOTE: Replace seed images with real product photos before launch */
   const listings = [
-    { b:'Silver Cross', n:'Reef3 — Orbit Grey',  c:'Excellent', cls:'ce',  price:680,  rrp:1999, loc:'Norwood SA',      seed:'sc-pram-orbit'    },
+    { b:'Silver Cross', n:'Reef3 — Orbit Grey',  c:'Excellent', cls:'ce',  price:680,  rrp:1999, loc:'Norwood SA',      img:'https://www.lovedbyparents.com/latest/bugaboo-fox-3-pushchair-review'    },
     { b:'Ergobaby',    n:'Omni 360 Carrier',      c:'Like New',  cls:'cl2', price:175,  rrp:379,  loc:'Richmond VIC',    seed:'ergo-baby-carrier' },
     { b:'IKEA',        n:'SUNDVIK Cot + Mattress', c:'Good',      cls:'cg',  price:110,  rrp:399,  loc:'Surry Hills NSW', seed:'ikea-cot-white'    },
     { b:'Bugaboo',     n:'Fox 3 — Sage Green',    c:'Excellent', cls:'ce',  price:920,  rrp:2299, loc:'Paddington QLD',  seed:'bugaboo-sage-fox'  },
@@ -532,7 +532,7 @@
   /* ── RENDER LISTINGS ── */
   document.getElementById('lgrid').innerHTML = listings.map(l => `
     <div class="lcard" onclick="openModal('listing')" role="button" tabindex="0" aria-label="View ${l.n}">
-      <img src="https://picsum.photos/seed/${l.seed}/400/290" alt="${l.n}" loading="lazy" onerror="this.style.background='#FDE8D0';this.style.height='145px'">
+      <img src="${l.img}" alt="${l.n}" loading="lazy" onerror="this.style.background='#FDE8D0';this.style.height='145px'">
       <div class="lcb">
         <div class="lbr">${l.b}</div>
         <div class="lnm">${l.n}</div>
