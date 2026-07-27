@@ -624,9 +624,9 @@
 
   /* ── LISTINGS ── */
   const items = [
-    { emoji:'🛺', brand:'Silver Cross', name:'Reef3 Pram — Orbit Grey',   cond:'Excellent', cls:'ce', loc:'Norwood SA',     price:680, rrp:1999 },
-    { emoji:'🎒', brand:'Ergobaby',     name:'Omni 360 Baby Carrier',      cond:'Like New',  cls:'cl', loc:'Richmond VIC',   price:175, rrp:379  },
-    { emoji:'🚗', brand:'Bugaboo',      name:'Fox 3 Pram — Sage Green',    cond:'Excellent', cls:'ce', loc:'Paddington QLD', price:920, rrp:2299 }
+    { img:'YOUR_PHOTO_URL', brand:'Silver Cross', name:'Reef3 Pram — Orbit Grey',   cond:'Excellent', cls:'ce', loc:'Norwood SA',     price:680, rrp:1999 },
+    { img:'YOUR_PHOTO_URL', brand:'Ergobaby',     name:'Omni 360 Baby Carrier',      cond:'Like New',  cls:'cl', loc:'Richmond VIC',   price:175, rrp:379  },
+    { img:'YOUR_PHOTO_URL', brand:'Bugaboo',      name:'Fox 3 Pram — Sage Green',    cond:'Excellent', cls:'ce', loc:'Paddington QLD', price:920, rrp:2299 }
   ];
 
   function pct(i)  { return Math.round((1 - i.price/i.rrp)*100); }
@@ -635,7 +635,7 @@
 
   function buyerCard(i) { return `
     <div class="lcard">
-      <div class="lcard-img">${i.emoji}</div>
+      <div class="lcard-img"><img src="${i.img}" style="width:100%;height:130px;object-fit:cover;display:block"></div>
       <div class="lcb">
         <div class="lexbadge">Example listing</div>
         <div class="lbrand">${i.brand}</div>
@@ -649,7 +649,7 @@
 
   function sellerCard(i) { return `
     <div class="lcard">
-      <div class="lcard-img">${i.emoji}</div>
+      <div class="lcard-img"><img src="${i.img}" style="width:100%;height:130px;object-fit:cover;display:block"></div>
       <div class="lcb">
         <div class="lexbadge">Example listing</div>
         <div class="lbrand">${i.brand}</div>
