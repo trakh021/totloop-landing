@@ -14,67 +14,63 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
   <script async src="https://tally.so/widgets/embed.js"></script>
   <style>
-    /* ── RESET ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Nunito', -apple-system, sans-serif; background: #FBF7F4; color: #1A1A2E; -webkit-font-smoothing: antialiased; }
-    a { text-decoration: none; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
-    /* ── BRAND TOKENS ── */
     :root {
-      --coral:    #E8736A;
-      --coral-lt: #FAEAEA;
-      --dark:     #1A1A2E;
-      --mid:      #4A5568;
-      --muted:    #9CA3AF;
-      --bg:       #FBF7F4;
-      --card:     #FFFFFF;
-      --bdr:      rgba(0,0,0,.07);
+      --coral:  #E8736A;
+      --clt:    #FAEAEA;
+      --dark:   #1A1A2E;
+      --mid:    #4A5568;
+      --muted:  #9CA3AF;
+      --bg:     #FBF7F4;
+      --card:   #FFFFFF;
+      --bdr:    rgba(0,0,0,.07);
     }
 
-    /* ── TYPOGRAPHY ── */
     .logo-tot  { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 18px; color: var(--dark); }
     .logo-loop { font-family: 'Dancing Script', cursive; font-size: 22px; color: var(--coral); }
     .joy       { font-family: 'Dancing Script', cursive; color: var(--coral); font-size: clamp(30px,5vw,52px); }
 
-    /* ── FOUNDING BAR ── */
+    /* FOUNDING BAR */
     .fbar { background: var(--coral); color: white; padding: .5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: .75rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 200; }
     .fbar-l { font-size: 12px; font-weight: 700; display: flex; align-items: center; gap: .5rem; }
     .fbar-r { display: flex; align-items: center; gap: .875rem; flex-shrink: 0; }
     .spotbar { width: 90px; height: 4px; background: rgba(255,255,255,.3); border-radius: 99px; overflow: hidden; }
     .spotfill { height: 100%; background: white; border-radius: 99px; transition: width .4s; }
     .fspot { font-size: 11px; font-weight: 800; white-space: nowrap; }
-    .fbar-btn { background: white; color: var(--coral); border: none; border-radius: 99px; padding: 5px 14px; font-family: 'Nunito',sans-serif; font-size: 12px; font-weight: 800; cursor: pointer; transition: opacity .15s; }
+    .fbar-btn { background: white; color: var(--coral); border: none; border-radius: 99px; padding: 5px 14px; font-family: 'Nunito',sans-serif; font-size: 12px; font-weight: 800; cursor: pointer; }
     .fbar-btn:hover { opacity: .9; }
 
-    /* ── NAV ── */
+    /* NAV */
     .nav { background: white; display: flex; align-items: center; justify-content: space-between; padding: .875rem 2rem; border-bottom: 1px solid var(--bdr); position: sticky; top: 40px; z-index: 199; }
     .logo { display: flex; align-items: center; gap: 8px; cursor: pointer; }
-    .logo-ic { width: 34px; height: 34px; border-radius: 50%; background: var(--coral-lt); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .logo-ic { width: 34px; height: 34px; border-radius: 50%; background: var(--clt); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .logo-ic i { font-size: 16px; color: var(--coral); }
     .navl { display: flex; gap: 1.5rem; font-size: 13px; font-weight: 700; color: var(--muted); }
     .navl a { color: var(--muted); cursor: pointer; transition: color .15s; }
-    .navl a:hover, .navl a.act { color: var(--dark); border-bottom: 2px solid var(--coral); padding-bottom: 2px; }
-    .ncta { background: var(--dark); color: white; border: none; border-radius: 99px; padding: 9px 20px; font-family: 'Nunito',sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; transition: background .15s; }
+    .navl a:hover { color: var(--dark); }
+    .ncta { background: var(--dark); color: white; border: none; border-radius: 99px; padding: 9px 20px; font-family: 'Nunito',sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; }
     .ncta:hover { background: #2D2D4A; }
 
-    /* ── HERO ── */
-    .hero { margin: 1.25rem 1.5rem 0; border-radius: 24px; padding: 3rem 2.5rem; display: grid; grid-template-columns: 1.15fr .85fr; gap: 2.5rem; align-items: center; background: linear-gradient(135deg, #fff5f4 0%, #fdf9f7 60%, #f4f7ff 100%); border: 1px solid var(--bdr); min-height: 380px; }
-    .hbadge { display: inline-flex; align-items: center; gap: 6px; background: var(--coral-lt); color: var(--coral); font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 99px; margin-bottom: 1.125rem; letter-spacing: .04em; }
-    .hh1 { font-size: clamp(28px, 4.5vw, 50px); font-weight: 800; line-height: 1.1; color: var(--dark); margin-bottom: .875rem; letter-spacing: -1.5px; }
-    .hp { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 1.375rem; max-width: 480px; }
-    .hsearch { display: flex; background: white; border-radius: 50px; padding: 5px 5px 5px 16px; align-items: center; gap: 8px; box-shadow: 0 2px 16px rgba(0,0,0,.08); margin-bottom: .625rem; cursor: pointer; border: 1px solid var(--bdr); max-width: 520px; }
+    /* HERO */
+    .hero { margin: 1.25rem 1.5rem 0; border-radius: 24px; padding: 3rem 2.5rem; display: grid; grid-template-columns: 1.15fr .85fr; gap: 2.5rem; align-items: center; background: linear-gradient(140deg, #fff5f4, #fdf9f7 55%, #f4f7ff); border: 1px solid var(--bdr); min-height: 380px; }
+    .hbadge { display: inline-flex; align-items: center; gap: 6px; background: var(--clt); color: var(--coral); font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 99px; margin-bottom: 1.125rem; letter-spacing: .04em; }
+    .hh1 { font-size: clamp(28px,4.5vw,50px); font-weight: 800; line-height: 1.1; color: var(--dark); margin-bottom: .875rem; letter-spacing: -1.5px; }
+    .hp { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 1.375rem; }
+    .hsearch { display: flex; background: white; border-radius: 50px; padding: 5px 5px 5px 16px; align-items: center; gap: 8px; box-shadow: 0 2px 16px rgba(0,0,0,.08); margin-bottom: .625rem; cursor: pointer; border: 1px solid var(--bdr); }
     .hsearch input { flex: 1; border: none; outline: none; font-family: 'Nunito',sans-serif; font-size: 13px; color: var(--dark); background: transparent; pointer-events: none; min-width: 0; }
-    .hfind { background: var(--coral); color: white; border: none; border-radius: 50px; padding: 9px 20px; font-family: 'Nunito',sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; white-space: nowrap; transition: background .15s; }
+    .hfind { background: var(--coral); color: white; border: none; border-radius: 50px; padding: 9px 20px; font-family: 'Nunito',sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; white-space: nowrap; }
     .hfind:hover { background: #cf5c30; }
     .hsell { font-size: 12px; font-weight: 700; color: var(--mid); margin-bottom: .875rem; }
     .hsell a { color: var(--coral); font-weight: 800; cursor: pointer; text-decoration: underline; }
     .cpills { display: flex; gap: 7px; flex-wrap: wrap; }
     .cpill { background: rgba(255,255,255,.85); border: 1px solid var(--bdr); border-radius: 99px; padding: 5px 12px; font-family: 'Nunito',sans-serif; font-size: 11px; font-weight: 700; color: var(--dark); cursor: pointer; transition: background .15s; }
-    .cpill:hover { background: white; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    .cpill:hover { background: white; }
 
-    /* ── HERO TILES ── */
+    /* HERO TILES */
     .htiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .htile { border-radius: 18px; padding: 1.125rem; display: flex; flex-direction: column; }
     .htile-ic { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
@@ -82,98 +78,106 @@
     .htile-name { font-size: 12px; font-weight: 800; line-height: 1.3; margin-bottom: 3px; }
     .htile-sub { font-size: 10px; font-weight: 600; line-height: 1.4; opacity: .75; }
 
-    /* ── TICKER ── */
-    .ticker { background: var(--dark); padding: .55rem 0; overflow: hidden; display: flex; align-items: center; }
-    .ti-inner { display: flex; gap: 2.5rem; animation: scroll 34s linear infinite; white-space: nowrap; padding-left: 2rem; }
-    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .titem { display: flex; align-items: center; gap: 7px; color: rgba(255,255,255,.7); font-size: 11px; font-weight: 600; flex-shrink: 0; }
-    .tdot { width: 5px; height: 5px; border-radius: 50%; background: var(--coral); flex-shrink: 0; }
-
-    /* ── STATS ── */
-    .stats { display: grid; grid-template-columns: repeat(3,1fr); background: white; border-bottom: 1px solid var(--bdr); }
-    .stat { padding: 1.375rem 2rem; text-align: center; }
-    .stat + .stat { border-left: 1px solid var(--bdr); }
-    .stn { font-size: 26px; font-weight: 800; color: var(--coral); }
-    .stl { font-size: 12px; color: var(--muted); font-weight: 700; margin-top: 4px; line-height: 1.4; }
-
-    /* ── SECTIONS ── */
-    .section { padding: 3rem 2rem; }
-    .section.on-white { background: white; border-top: 1px solid var(--bdr); border-bottom: 1px solid var(--bdr); }
+    /* HOW IT WORKS */
+    .sec { padding: 3rem 2rem; }
+    .sec.wh { background: white; }
     .stag { font-size: 11px; font-weight: 800; color: var(--coral); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
     .sttl { font-size: 22px; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
     .ssub { font-size: 13px; color: var(--mid); line-height: 1.6; }
-    .sh { margin-bottom: 1.5rem; }
-    .sa { font-size: 12px; font-weight: 800; color: var(--coral); background: none; border: none; font-family: 'Nunito',sans-serif; cursor: pointer; }
-
-    /* ── HOW IT WORKS ── */
-    .steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin-top: 1.25rem; }
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 1.5rem; }
     .step { background: var(--bg); border-radius: 16px; padding: 1.25rem; border: 1px solid var(--bdr); }
-    .stepbadge { display: inline-block; font-size: 10px; font-weight: 800; color: var(--coral); background: var(--coral-lt); padding: 3px 10px; border-radius: 99px; margin-bottom: 10px; letter-spacing: .06em; }
+    .step-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: .875rem; }
+    .stepbadge { display: inline-block; font-size: 10px; font-weight: 800; color: var(--coral); background: var(--clt); padding: 3px 10px; border-radius: 99px; letter-spacing: .06em; }
+    .step-emoji { font-size: 26px; line-height: 1; }
     .stit { font-size: 15px; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
     .sdesc { font-size: 12px; color: var(--mid); line-height: 1.7; }
 
-    /* ── CALCULATOR ── */
-    .calc-section { background: white; padding: 3rem 2rem; border-top: 1px solid var(--bdr); border-bottom: 1px solid var(--bdr); }
-    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; margin-top: 1.5rem; }
-    .calc-label { font-size: 10px; font-weight: 800; color: var(--coral); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; }
-    .cat-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.25rem; }
-    .cat-pill { background: white; border: 1.5px solid rgba(0,0,0,.12); border-radius: 99px; padding: 5px 13px; font-family: 'Nunito',sans-serif; font-size: 11px; font-weight: 700; cursor: pointer; color: var(--mid); transition: all .15s; }
-    .cat-pill.act { border-color: var(--coral); background: var(--coral-lt); color: var(--coral); }
-    .calc-slider-label { font-size: 12px; font-weight: 700; color: var(--dark); margin-bottom: 8px; display: flex; justify-content: space-between; }
-    input[type=range] { width: 100%; accent-color: var(--coral); margin-bottom: 4px; }
-    .calc-range-ends { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); margin-bottom: 1.25rem; }
-    .calc-fact { background: #EAF0FD; border-radius: 12px; padding: .875rem 1rem; font-size: 11px; color: #1A3A8F; line-height: 1.6; }
-    .calc-cards { display: flex; flex-direction: column; gap: 10px; }
-    .calc-card-main { background: var(--coral-lt); border-radius: 16px; padding: 1.25rem; }
-    .clabel { font-size: 10px; font-weight: 800; color: var(--coral); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
-    .calc-big { font-size: 36px; font-weight: 800; color: var(--coral); }
-    .calc-sub { font-size: 11px; color: rgba(200,80,70,.8); font-weight: 600; margin-top: 3px; }
-    .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .calc-card-sm { background: var(--bg); border-radius: 12px; padding: 1rem; border: 1px solid var(--bdr); }
-    .calc-med { font-size: 22px; font-weight: 800; color: var(--dark); margin: 4px 0 2px; }
-    .calc-dis { font-size: 10px; color: var(--muted); margin-top: 10px; line-height: 1.5; font-style: italic; }
+    /* TRUST BANNER */
+    .trust-banner { margin: 0 1.5rem; background: #EAF0FD; border-radius: 16px; padding: 1rem 1.375rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .trust-q { font-size: 13px; font-weight: 800; color: #1A1A2E; }
+    .trust-a { font-size: 11px; color: #185FA5; margin-top: 3px; line-height: 1.5; }
+    .tbtn { background: #1A3A8F; color: white; border: none; border-radius: 99px; padding: 7px 16px; font-family: 'Nunito',sans-serif; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
 
-    /* ── EXAMPLE LISTINGS ── */
-    .lgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)); gap: 14px; margin-top: 1.25rem; }
-    .lcard { background: white; border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform .2s, box-shadow .2s; border: 1px solid var(--bdr); }
-    .lcard:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(0,0,0,.08); }
-    .lcard img { width: 100%; height: 150px; object-fit: cover; display: block; background: var(--coral-lt); }
+    /* LISTINGS */
+    .listing-toggle-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .toggle-label { font-size: 12px; font-weight: 700; color: var(--muted); }
+    .toggle { display: flex; background: white; border: 1px solid var(--bdr); border-radius: 99px; padding: 3px; gap: 3px; }
+    .topt { padding: 7px 16px; border-radius: 99px; font-family: 'Nunito',sans-serif; font-size: 12px; font-weight: 800; cursor: pointer; border: none; background: transparent; color: var(--muted); transition: all .15s; display: flex; align-items: center; gap: 5px; }
+    .topt.act { background: var(--dark); color: white; }
+    .toggle-hint { font-size: 11px; color: var(--muted); }
+    .lgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 14px; }
+    .lcard { background: white; border-radius: 16px; overflow: hidden; border: 1px solid var(--bdr); transition: transform .2s; }
+    .lcard:hover { transform: translateY(-3px); }
+    .lcard-img { width: 100%; height: 130px; display: flex; align-items: center; justify-content: center; font-size: 48px; background: var(--clt); }
     .lcb { padding: 10px 13px 14px; }
-    .lexbadge { background: var(--coral-lt); color: var(--coral); font-size: 9px; font-weight: 800; padding: 2px 8px; border-radius: 99px; display: inline-block; margin-bottom: 6px; }
-    .lbr { font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; }
-    .lnm { font-size: 13px; font-weight: 800; color: var(--dark); line-height: 1.3; margin-bottom: 7px; }
-    .lcrow { display: flex; gap: 5px; margin-bottom: 6px; flex-wrap: wrap; align-items: center; }
+    .lexbadge { background: var(--clt); color: var(--coral); font-size: 9px; font-weight: 800; padding: 2px 8px; border-radius: 99px; display: inline-block; margin-bottom: 6px; }
+    .lbrand { font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; }
+    .lname { font-size: 13px; font-weight: 800; color: var(--dark); line-height: 1.3; margin-bottom: 7px; }
+    .lrow { display: flex; gap: 5px; align-items: center; margin-bottom: 5px; flex-wrap: wrap; }
     .cb { font-size: 9px; font-weight: 800; padding: 2px 7px; border-radius: 99px; }
     .ce { background: #E8F5E0; color: #2D6A1F; }
-    .cl2 { background: #EAF0FD; color: #1A3A8F; }
-    .cg { background: #FAF3E0; color: #7A4F0D; }
+    .cl { background: #EAF0FD; color: #1A3A8F; }
     .lloc { font-size: 9px; color: var(--muted); font-weight: 700; }
-    .lpr { display: flex; align-items: baseline; gap: 6px; }
-    .lp { font-size: 16px; font-weight: 800; color: var(--dark); }
+    .vbadge { display: inline-flex; align-items: center; gap: 3px; background: #E8F5E0; color: #2D6A1F; font-size: 9px; font-weight: 800; padding: 2px 7px; border-radius: 99px; }
+    .lpr { display: flex; align-items: baseline; gap: 6px; margin-bottom: 10px; }
+    .lp { font-size: 18px; font-weight: 800; color: var(--dark); }
     .lr { font-size: 10px; color: var(--muted); text-decoration: line-through; }
     .ls { font-size: 10px; font-weight: 800; color: var(--coral); }
+    .view-btn { width: 100%; background: var(--dark); color: white; border: none; border-radius: 99px; padding: 9px; font-family: 'Nunito',sans-serif; font-size: 12px; font-weight: 800; cursor: pointer; }
+    .view-btn:hover { background: #2D2D4A; }
+    .ldivider { border: none; border-top: 1px solid var(--bdr); margin: 8px 0; }
+    .earn-row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; padding: 2px 0; }
+    .earn-lbl { color: var(--mid); font-weight: 600; }
+    .earn-val { font-weight: 800; color: var(--dark); }
+    .earn-val.neg { color: var(--muted); }
+    .earn-total { display: flex; justify-content: space-between; align-items: center; background: var(--bg); border-radius: 10px; padding: 8px 10px; margin: 8px 0; }
+    .earn-total-lbl { font-size: 12px; font-weight: 800; color: var(--dark); }
+    .earn-total-val { font-size: 18px; font-weight: 800; color: var(--dark); }
+    .founder-row { background: var(--clt); border-radius: 10px; padding: 8px 10px; margin-bottom: 10px; }
+    .founder-top { display: flex; justify-content: space-between; align-items: center; }
+    .founder-lbl { font-size: 11px; font-weight: 800; color: var(--coral); }
+    .founder-val { font-size: 17px; font-weight: 800; color: var(--coral); }
+    .founder-sub { font-size: 10px; color: rgba(232,115,106,.7); margin-top: 2px; }
+    .list-btn { width: 100%; background: var(--coral); color: white; border: none; border-radius: 99px; padding: 9px; font-family: 'Nunito',sans-serif; font-size: 12px; font-weight: 800; cursor: pointer; }
+    .list-btn:hover { background: #cf5c30; }
 
-    /* ── PARENT QUOTES ── */
-    .quotes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 1.25rem; }
+    /* PROBLEM */
+    .stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--bdr); border-radius: 16px; overflow: hidden; margin-top: 1.5rem; }
+    .sstat { background: var(--bg); padding: 1.25rem 1rem; text-align: center; }
+    .sstat-n { font-size: 26px; font-weight: 800; color: var(--coral); }
+    .sstat-l { font-size: 11px; color: var(--muted); font-weight: 700; margin-top: 4px; line-height: 1.4; }
+    .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 1.5rem; }
     .qcard { background: white; border-radius: 16px; padding: 1.375rem; border: 1px solid var(--bdr); }
-    .qmark { font-size: 42px; color: var(--coral-lt); line-height: 1; font-family: Georgia, serif; margin-bottom: 6px; }
+    .qmark { font-size: 42px; color: var(--clt); line-height: 1; font-family: Georgia, serif; margin-bottom: 6px; }
     .qtext { font-size: 13px; color: var(--mid); line-height: 1.7; font-style: italic; margin-bottom: 10px; }
     .qname { font-size: 12px; font-weight: 800; color: var(--dark); }
     .qctx { font-size: 10px; color: var(--muted); margin-top: 3px; }
 
-    /* ── FOUNDER ── */
-    .founder-inner { background: var(--bg); border-radius: 20px; padding: 1.875rem; display: grid; grid-template-columns: .25fr .75fr; gap: 1.875rem; align-items: center; margin-top: 1.25rem; }
-    .founder-ava { width: 76px; height: 76px; border-radius: 50%; background: var(--coral-lt); display: flex; align-items: center; justify-content: center; margin: 0 auto; }
-    .founder-ava i { font-size: 30px; color: var(--coral); }
-    .founder-loc { font-size: 10px; font-weight: 800; color: var(--coral); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; text-align: center; margin-top: 8px; }
-    .founder-quote { font-size: 13px; color: var(--mid); line-height: 1.7; font-style: italic; margin-bottom: 10px; }
-    .founder-name { font-size: 12px; font-weight: 800; color: var(--dark); }
+    /* CALCULATOR */
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; margin-top: 1.5rem; }
+    .clabel { font-size: 10px; font-weight: 800; color: var(--coral); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; }
+    .cat-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .cat-pill { background: white; border: 1.5px solid rgba(0,0,0,.12); border-radius: 99px; padding: 5px 13px; font-family: 'Nunito',sans-serif; font-size: 11px; font-weight: 700; cursor: pointer; color: var(--mid); transition: all .15s; }
+    .cat-pill.act { border-color: var(--coral); background: var(--clt); color: var(--coral); }
+    .slider-lbl { font-size: 12px; font-weight: 700; color: var(--dark); margin-bottom: 8px; display: flex; justify-content: space-between; }
+    input[type=range] { width: 100%; accent-color: var(--coral); margin-bottom: 4px; }
+    .range-ends { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); margin-bottom: 1.25rem; }
+    .cfact { background: #EAF0FD; border-radius: 12px; padding: .875rem 1rem; font-size: 11px; color: #1A3A8F; line-height: 1.6; }
+    .calc-cards { display: flex; flex-direction: column; gap: 10px; }
+    .cc-main { background: var(--clt); border-radius: 16px; padding: 1.25rem; }
+    .cc-lbl { font-size: 10px; font-weight: 800; color: var(--coral); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
+    .cc-big { font-size: 36px; font-weight: 800; color: var(--coral); }
+    .cc-sub { font-size: 11px; color: rgba(200,80,70,.75); font-weight: 600; margin-top: 3px; }
+    .cc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .cc-sm { background: var(--bg); border-radius: 12px; padding: 1rem; border: 1px solid var(--bdr); }
+    .cc-med { font-size: 22px; font-weight: 800; color: var(--dark); margin: 4px 0 2px; }
+    .cc-dis { font-size: 10px; color: var(--muted); margin-top: 10px; line-height: 1.5; font-style: italic; }
 
-    /* ── PRICING ── */
-    .pricing { background: var(--dark); padding: 3rem 2rem; }
-    .pricing-head { text-align: center; margin-bottom: 2rem; }
-    .pricing-head h2 { font-size: 24px; font-weight: 800; color: white; }
-    .pricing-head p { font-size: 13px; color: rgba(255,255,255,.5); margin-top: 6px; }
+    /* PRICING */
+    .pricing-sec { background: var(--dark); padding: 3rem 2rem; }
+    .ph { text-align: center; margin-bottom: 2rem; }
+    .ph h2 { font-size: 24px; font-weight: 800; color: white; }
+    .ph p { font-size: 13px; color: rgba(255,255,255,.45); margin-top: 6px; }
     .pgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 720px; margin: 0 auto; }
     .plan { border-radius: 20px; padding: 1.75rem; }
     .pf { background: white; }
@@ -195,28 +199,27 @@
     .pf .plist li::before { content: '✓'; color: var(--coral); font-weight: 800; font-size: 14px; }
     .ps .plist li { color: rgba(255,255,255,.5); }
     .ps .plist li::before { content: '✓'; color: rgba(255,255,255,.2); }
-    .pbtn { width: 100%; border: none; border-radius: 99px; padding: 12px; font-family: 'Nunito',sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; transition: background .15s; }
+    .pbtn { width: 100%; border: none; border-radius: 99px; padding: 12px; font-family: 'Nunito',sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; }
     .pf .pbtn { background: var(--coral); color: white; }
     .pf .pbtn:hover { background: #cf5c30; }
     .ps .pbtn { background: rgba(255,255,255,.08); color: rgba(255,255,255,.35); cursor: default; }
     .pspot { text-align: center; margin-top: 1.25rem; font-size: 11px; color: rgba(255,255,255,.35); }
     .pbar { width: 220px; height: 5px; background: rgba(255,255,255,.1); border-radius: 99px; overflow: hidden; margin: .625rem auto 0; }
     .pbarfill { height: 100%; background: var(--coral); border-radius: 99px; }
-
-    /* ── FAQ ── */
-    .faq-list { border: 1px solid var(--bdr); border-radius: 16px; overflow: hidden; background: white; margin-top: 1.25rem; }
-    .faq-item { border-bottom: 1px solid var(--bdr); }
+    .faq-wrap { max-width: 600px; margin: 2rem auto 0; }
+    .faq-hd { text-align: center; margin-bottom: 1rem; color: rgba(255,255,255,.4); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,.1); }
     .faq-item:last-child { border-bottom: none; }
-    .faq-q { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; cursor: pointer; font-weight: 700; font-size: 14px; color: var(--dark); gap: 1rem; }
-    .faq-q:hover { background: var(--bg); }
+    .faq-q { display: flex; align-items: center; justify-content: space-between; padding: .875rem 0; cursor: pointer; font-weight: 700; font-size: 13px; color: rgba(255,255,255,.8); gap: 1rem; }
     .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
-    .faq-a-inner { padding: 0 1.25rem 1rem; font-size: 13px; color: var(--mid); line-height: 1.7; }
+    .faq-a-inner { padding: 0 0 .875rem; font-size: 12px; color: rgba(255,255,255,.5); line-height: 1.7; }
     .faq-item.open .faq-a { max-height: 300px; }
-    .fchev { transition: transform .2s; flex-shrink: 0; font-size: 16px; color: var(--muted); }
+    .fchev { transition: transform .2s; flex-shrink: 0; font-size: 14px; color: rgba(255,255,255,.3); }
     .faq-item.open .fchev { transform: rotate(180deg); }
-    .faq-cta { background: var(--coral-lt); border-radius: 14px; padding: 1.125rem 1.375rem; margin-top: 1.125rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .pricing-cta { text-align: center; margin-top: 2rem; }
+    .pricing-cta p { font-size: 12px; color: rgba(255,255,255,.35); margin-bottom: .75rem; }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     .footer { background: #F3EDE8; padding: 2.5rem 2rem; border-top: 1px solid var(--bdr); }
     .fgrid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 1.5rem; }
     .flogo-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: .625rem; }
@@ -228,50 +231,49 @@
     .flnk.hl { color: var(--coral); font-weight: 800; }
     .fbot { border-top: 1px solid var(--bdr); padding-top: 1rem; font-size: 11px; color: var(--muted); }
 
-    /* ── MODAL ── */
+    /* MODAL */
     .moverlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); align-items: center; justify-content: center; padding: 1.5rem; z-index: 1000; }
     .mcard { background: white; border-radius: 22px; padding: 2rem; max-width: 400px; width: 100%; position: relative; box-shadow: 0 24px 60px rgba(0,0,0,.2); animation: slideUp .2s ease; }
     @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     .mtag { font-size: 11px; font-weight: 800; color: var(--coral); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
     .mh { font-size: 22px; font-weight: 800; color: var(--dark); line-height: 1.2; margin-bottom: 7px; }
     .msub { font-size: 13px; color: var(--mid); margin-bottom: 1.125rem; line-height: 1.6; }
-    .mfbar { background: var(--coral-lt); border-radius: 12px; padding: .75rem .875rem; margin-bottom: 1.125rem; font-size: 11px; color: var(--dark); line-height: 1.5; }
+    .mfbar { background: var(--clt); border-radius: 12px; padding: .75rem .875rem; margin-bottom: 1.125rem; font-size: 11px; color: var(--dark); line-height: 1.5; }
     .mfbar strong { color: var(--coral); }
     .mlbl { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
     .mrole { display: flex; gap: 8px; margin-bottom: 12px; }
     .rbtn { flex: 1; padding: 10px; border: 1.5px solid rgba(0,0,0,.12); border-radius: 11px; text-align: center; cursor: pointer; font-size: 13px; font-family: 'Nunito',sans-serif; font-weight: 800; background: white; color: var(--mid); transition: all .15s; }
-    .rbtn.sel { border-color: var(--coral); background: var(--coral-lt); color: var(--coral); }
+    .rbtn.sel { border-color: var(--coral); background: var(--clt); color: var(--coral); }
     .mi { width: 100%; padding: 11px 14px; border: 1.5px solid rgba(0,0,0,.12); border-radius: 11px; font-family: 'Nunito',sans-serif; font-size: 14px; color: var(--dark); margin-bottom: 11px; outline: none; transition: border-color .15s; }
     .mi:focus { border-color: var(--coral); }
-    .mbtn { width: 100%; background: var(--coral); color: white; border: none; border-radius: 11px; padding: 13px; font-family: 'Nunito',sans-serif; font-size: 15px; font-weight: 800; cursor: pointer; margin-bottom: 8px; transition: background .15s; }
+    .mbtn { width: 100%; background: var(--coral); color: white; border: none; border-radius: 11px; padding: 13px; font-family: 'Nunito',sans-serif; font-size: 15px; font-weight: 800; cursor: pointer; margin-bottom: 8px; }
     .mbtn:hover { background: #cf5c30; }
     .mdis { font-size: 11px; color: var(--muted); text-align: center; }
-    .mclose { position: absolute; top: 14px; right: 14px; background: rgba(0,0,0,.06); border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; color: var(--mid); display: flex; align-items: center; justify-content: center; font-size: 15px; transition: background .15s; }
+    .mclose { position: absolute; top: 14px; right: 14px; background: rgba(0,0,0,.06); border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; color: var(--mid); display: flex; align-items: center; justify-content: center; font-size: 15px; }
     .mclose:hover { background: rgba(0,0,0,.1); }
     .succ { text-align: center; padding: 1rem 0; }
     .sico { width: 56px; height: 56px; border-radius: 50%; background: #E8F5E0; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: #2D6A1F; font-size: 24px; font-weight: 800; }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
-      .fbar { flex-direction: column; align-items: flex-start; gap: .5rem; }
+      .fbar { flex-direction: column; align-items: flex-start; }
       .fbar-r { width: 100%; justify-content: space-between; }
       .nav { top: 0; }
       .hero { grid-template-columns: 1fr; padding: 2rem 1.5rem; margin: .875rem .875rem 0; }
       .htiles { display: none; }
-      .calc-grid { grid-template-columns: 1fr; }
-      .pgrid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .calc-grid, .quotes, .pgrid { grid-template-columns: 1fr; }
       .fgrid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+      .trust-banner { margin: 0 .875rem; }
     }
     @media (max-width: 600px) {
       .nav { padding: .75rem 1rem; }
       .navl { display: none; }
-      .section, .calc-section, .pricing, .footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .sec, .pricing-sec, .footer { padding-left: 1.25rem; padding-right: 1.25rem; }
       .hero { padding: 1.75rem 1.25rem; }
-      .stats { grid-template-columns: 1fr; }
-      .stat + .stat { border-left: none; border-top: 1px solid var(--bdr); }
-      .lgrid { grid-template-columns: repeat(2, 1fr); }
+      .stats-row { grid-template-columns: 1fr; }
+      .lgrid { grid-template-columns: repeat(2,1fr); }
       .fgrid { grid-template-columns: 1fr; }
-      .founder-inner { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -296,10 +298,9 @@
     <span><span class="logo-tot">tot</span><span class="logo-loop">loop</span></span>
   </div>
   <div class="navl">
-    <a class="act" onclick="window.scrollTo({top:0,behavior:'smooth'})">Home</a>
-    <a onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">How it Works</a>
+    <a onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">How it works</a>
     <a onclick="document.getElementById('calc').scrollIntoView({behavior:'smooth'})">Calculator</a>
-    <a onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">FAQs</a>
+    <a onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Pricing</a>
   </div>
   <button class="ncta" onclick="openModal('nav')">Start Looping</button>
 </nav>
@@ -308,13 +309,11 @@
 <div class="hero">
   <div>
     <div class="hbadge"><i class="ti ti-refresh" style="font-size:11px" aria-hidden="true"></i> THE ECO-FRIENDLY GEAR LOOP</div>
-    <h1 style="font-size:clamp(28px,4.5vw,50px);font-weight:800;line-height:1.1;color:var(--dark);margin-bottom:.875rem;letter-spacing:-1.5px">
-      Outgrown,<br>never <span class="joy">outdated.</span>
-    </h1>
-    <p class="hp">Australia's first curated, safety-verified marketplace for pre-loved baby gear. Every listing checked against ACCC recalls before it goes live — so you buy and sell with complete confidence.</p>
+    <h1 class="hh1">Outgrown,<br>never <span class="joy">outdated.</span></h1>
+    <p class="hp">Australia's first curated marketplace for pre-loved baby gear — every listing safety-checked before it goes live.</p>
     <div class="hsearch" onclick="openModal('browse')" role="button" tabindex="0">
       <i class="ti ti-search" style="font-size:16px;color:var(--muted)" aria-hidden="true"></i>
-      <input type="text" placeholder="Search prams, cots, carriers, size 2 clothes..." readonly aria-label="Search TotLoop listings">
+      <input type="text" placeholder="Search prams, cots, carriers, size 2 clothes..." readonly>
       <button class="hfind">Find Gear</button>
     </div>
     <div class="hsell">Are you selling? <a onclick="openModal('sell')">List your first item free →</a></div>
@@ -331,70 +330,127 @@
     <div class="htile" style="background:#FAEAEA">
       <div class="htile-ic" style="background:rgba(192,80,80,.15)"><i class="ti ti-star" style="color:#C05050" aria-hidden="true"></i></div>
       <div class="htile-name" style="color:#C05050">Curated Listings</div>
-      <div class="htile-sub" style="color:#C05050">Hand-reviewed, quality gear only</div>
+      <div class="htile-sub" style="color:#C05050">Quality gear only</div>
     </div>
     <div class="htile" style="background:#E8F5E0">
       <div class="htile-ic" style="background:rgba(45,106,31,.15)"><i class="ti ti-check" style="color:#2D6A1F" aria-hidden="true"></i></div>
-      <div class="htile-name" style="color:#2D6A1F">Safety Verified</div>
-      <div class="htile-sub" style="color:#2D6A1F">ACCC recall checked before listing</div>
+      <div class="htile-name" style="color:#2D6A1F">Safety Checked</div>
+      <div class="htile-sub" style="color:#2D6A1F">ACCC recall verified</div>
     </div>
     <div class="htile" style="background:#EAF0FD">
       <div class="htile-ic" style="background:rgba(26,58,143,.15)"><i class="ti ti-lock" style="color:#1A3A8F" aria-hidden="true"></i></div>
       <div class="htile-name" style="color:#1A3A8F">Buyer Protected</div>
-      <div class="htile-sub" style="color:#1A3A8F">Secure escrow on every purchase</div>
+      <div class="htile-sub" style="color:#1A3A8F">Secure escrow always</div>
     </div>
     <div class="htile" style="background:#FAF3E0">
       <div class="htile-ic" style="background:rgba(122,79,13,.15)"><i class="ti ti-refresh" style="color:#7A4F0D" aria-hidden="true"></i></div>
       <div class="htile-name" style="color:#7A4F0D">Zero Waste</div>
-      <div class="htile-sub" style="color:#7A4F0D">Keep gear out of landfill</div>
+      <div class="htile-sub" style="color:#7A4F0D">Gear stays in use</div>
     </div>
   </div>
-</div>
-
-<!-- TICKER -->
-<div class="ticker"><div class="ti-inner" id="ticker"></div></div>
-
-<!-- STATS -->
-<div class="stats">
-  <div class="stat"><div class="stn">85%</div><div class="stl">of baby gear ends up in landfill within 12 months of purchase</div></div>
-  <div class="stat"><div class="stn">$3,000+</div><div class="stl">spent by the average Australian family on gear in year one</div></div>
-  <div class="stat"><div class="stn">~60%</div><div class="stl">average saving vs RRP on quality used gear through TotLoop</div></div>
 </div>
 
 <!-- HOW IT WORKS -->
-<div class="section on-white" id="how">
-  <div class="sh">
+<div class="sec wh" id="how">
+  <div style="text-align:center">
     <div class="stag">SIMPLE CIRCULAR MARKETPLACE</div>
     <div class="sttl">How Looping Works</div>
-    <div class="ssub">No more Marketplace no-shows. No more lowballers. Just safe, simple gear exchange.</div>
+    <div class="ssub">No more no-shows. No more lowballers. Three simple steps.</div>
   </div>
   <div class="steps">
     <div class="step">
-      <div class="stepbadge">STEP 01</div>
+      <div class="step-top">
+        <div class="stepbadge">STEP 01</div>
+        <span class="step-emoji">🏷️</span>
+      </div>
       <div class="stit">List your gear</div>
-      <div class="sdesc">Fill in item details, condition, age, and safety history. Our team reviews every listing against the ACCC recall register before it goes live.</div>
+      <div class="sdesc">Fill in your item's details, condition, and age. We review it against the ACCC recall register before it goes live.</div>
     </div>
     <div class="step">
-      <div class="stepbadge">STEP 02</div>
+      <div class="step-top">
+        <div class="stepbadge">STEP 02</div>
+        <span class="step-emoji">🤝</span>
+      </div>
       <div class="stit">Connect safely</div>
-      <div class="sdesc">Verified buyers find your listing, message you through TotLoop, and purchase through secure escrow. No cash, no strangers turning up unconfirmed.</div>
+      <div class="sdesc">Verified buyers find your listing and purchase through secure escrow. No cash. No strangers at the door unconfirmed.</div>
     </div>
     <div class="step">
-      <div class="stepbadge">STEP 03</div>
+      <div class="step-top">
+        <div class="stepbadge">STEP 03</div>
+        <span class="step-emoji">💰</span>
+      </div>
       <div class="stit">Get paid, give back</div>
-      <div class="sdesc">Once the buyer confirms receipt, funds are released to you. Another family gets quality gear at a fair price. Everyone wins.</div>
+      <div class="sdesc">Once the buyer confirms receipt, funds release to you. Another family gets quality gear. Everyone wins.</div>
     </div>
   </div>
 </div>
 
-<!-- SAVINGS CALCULATOR -->
-<div class="calc-section" id="calc">
+<!-- TRUST BANNER -->
+<div class="trust-banner">
+  <div style="display:flex;align-items:center;gap:1rem">
+    <i class="ti ti-lock" style="font-size:22px;color:#185FA5;flex-shrink:0" aria-hidden="true"></i>
+    <div>
+      <div class="trust-q">Are listings safety checked?</div>
+      <div class="trust-a">Every listing is cross-checked against the live ACCC recall register before it goes live on TotLoop.</div>
+    </div>
+  </div>
+  <button class="tbtn" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Learn more →</button>
+</div>
+
+<!-- EXAMPLE LISTINGS -->
+<div class="sec">
+  <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem">
+    <div>
+      <div class="stag">EXAMPLE LISTINGS</div>
+      <div class="sttl">A taste of what's coming</div>
+      <div class="ssub">Illustrative examples only. Toggle to see TotLoop from both sides of the transaction.</div>
+    </div>
+  </div>
+  <div class="listing-toggle-wrap">
+    <span class="toggle-label">Viewing as:</span>
+    <div class="toggle">
+      <button class="topt act" id="t-buyer" onclick="setView('buyer')">🛒 Buyer</button>
+      <button class="topt" id="t-seller" onclick="setView('seller')">🏷️ Seller</button>
+    </div>
+    <span class="toggle-hint" id="toggle-hint">See what buyers find on TotLoop</span>
+  </div>
+  <div class="lgrid" id="lgrid"></div>
+</div>
+
+<!-- WHY TOTLOOP EXISTS -->
+<div class="sec wh">
+  <div class="stag">THE PROBLEM WE'RE SOLVING</div>
+  <div class="sttl">Why TotLoop exists</div>
+  <div class="ssub">The secondhand baby gear market is broken. Here's what parents kept telling us.</div>
+  <div class="stats-row">
+    <div class="sstat"><div class="sstat-n">85%</div><div class="sstat-l">of baby gear ends in landfill within 12 months</div></div>
+    <div class="sstat"><div class="sstat-n">$3k+</div><div class="sstat-l">spent by the average Aussie family on gear in year one</div></div>
+    <div class="sstat"><div class="sstat-n">~60%</div><div class="sstat-l">average saving vs RRP on quality used gear</div></div>
+  </div>
+  <div class="quotes">
+    <div class="qcard">
+      <div class="qmark">"</div>
+      <div class="qtext">Every time I listed on Facebook Marketplace I'd get three no-shows and someone trying to lowball me at the last minute. There has to be a better way.</div>
+      <div class="qname">Parent, Adelaide SA</div>
+      <div class="qctx">Trying to sell a Bugaboo pram for 6 months</div>
+    </div>
+    <div class="qcard">
+      <div class="qmark">"</div>
+      <div class="qtext">I'd buy secondhand gear all day if I could trust it hadn't been recalled. That's the one thing that stops me every time I go to Gumtree.</div>
+      <div class="qname">Parent, Melbourne VIC</div>
+      <div class="qctx">First-time mum researching secondhand cots</div>
+    </div>
+  </div>
+</div>
+
+<!-- CALCULATOR -->
+<div class="sec" id="calc">
   <div class="stag">INTERACTIVE CALCULATOR</div>
   <div class="sttl">See what your unused gear is worth</div>
-  <div class="ssub">Adjust below to estimate your earnings as a TotLoop seller. Based on average Australian resale market prices.</div>
+  <div class="ssub">Estimate your earnings as a TotLoop seller. Based on average Australian resale market prices.</div>
   <div class="calc-grid">
     <div>
-      <div class="calc-label">What are you selling?</div>
+      <div class="clabel">What are you selling?</div>
       <div class="cat-pills">
         <button class="cat-pill act" onclick="setCat(this,'mixed')">Mixed gear</button>
         <button class="cat-pill" onclick="setCat(this,'pram')">Prams</button>
@@ -402,105 +458,44 @@
         <button class="cat-pill" onclick="setCat(this,'cot')">Cots</button>
         <button class="cat-pill" onclick="setCat(this,'clothing')">Clothing</button>
       </div>
-      <div class="calc-label">Number of items</div>
-      <div class="calc-slider-label"><span>How many items?</span><span id="qs" style="color:var(--coral)">5 items</span></div>
+      <div class="clabel">Number of items</div>
+      <div class="slider-lbl"><span>Items to sell</span><span id="qs" style="color:var(--coral)">5 items</span></div>
       <input type="range" min="1" max="15" value="5" step="1" id="qty-s" oninput="setQty(this.value)">
-      <div class="calc-range-ends"><span>1 item</span><span>15 items</span></div>
-      <div class="calc-fact"><strong>Circular Fact:</strong> Over 85% of purchased baby gear ends up in landfill or attic storage within a year of being outgrown. TotLoop keeps it in circulation.</div>
+      <div class="range-ends"><span>1 item</span><span>15 items</span></div>
+      <div class="cfact"><strong>Did you know?</strong> Over 85% of baby gear ends up in landfill or storage within 12 months of being outgrown. TotLoop keeps it circulating.</div>
     </div>
     <div class="calc-cards">
-      <div class="calc-card-main">
-        <div class="clabel">💰 Your estimated earnings</div>
-        <div class="calc-big" id="ce">$1,250</div>
-        <div class="calc-sub">after 8.5% TotLoop commission · founding members pay zero</div>
+      <div class="cc-main">
+        <div class="cc-lbl">Your estimated earnings</div>
+        <div class="cc-big" id="ce">$1,250</div>
+        <div class="cc-sub">based on average resale prices · founding members keep every dollar</div>
       </div>
-      <div class="calc-row">
-        <div class="calc-card-sm">
-          <div class="calc-label" style="font-size:9px">BUYER SAVES</div>
-          <div class="calc-med" id="cs">~60%</div>
+      <div class="cc-row">
+        <div class="cc-sm">
+          <div class="clabel" style="font-size:9px">BUYER SAVES</div>
+          <div class="cc-med" id="cs">~60%</div>
           <div style="font-size:10px;color:var(--muted);margin-top:2px">vs buying new</div>
         </div>
-        <div class="calc-card-sm">
-          <div class="calc-label" style="font-size:9px">FROM LANDFILL</div>
-          <div class="calc-med" id="ci">5 items</div>
+        <div class="cc-sm">
+          <div class="clabel" style="font-size:9px">FROM LANDFILL</div>
+          <div class="cc-med" id="ci">5 items</div>
           <div style="font-size:10px;color:var(--muted);margin-top:2px">kept in use</div>
         </div>
       </div>
-      <div class="calc-dis">Estimates based on average Australian resale market prices. Actual results may vary.</div>
-    </div>
-  </div>
-</div>
-
-<!-- EXAMPLE LISTINGS -->
-<div class="section">
-  <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:.25rem">
-    <div>
-      <div class="stag">EXAMPLE LISTINGS</div>
-      <div class="sttl">The kind of gear you'll find on TotLoop</div>
-      <div class="ssub">Illustrative examples only — not live listings. Real listings appear once we launch.</div>
-    </div>
-    <button class="sa" onclick="openModal('browse')">Join to be first →</button>
-  </div>
-  <!-- NOTE: Replace picsum.photos URLs with real product photos before sharing widely -->
-  <div class="lgrid" id="lgrid"></div>
-</div>
-
-<!-- WHAT PARENTS TOLD US -->
-<div class="section on-white">
-  <div class="sh">
-    <div class="stag">PARENT RESEARCH</div>
-    <div class="sttl">What parents told us</div>
-    <div class="ssub">Before building TotLoop, we spoke with dozens of Australian parents about buying and selling baby gear. Here's what came up again and again.</div>
-  </div>
-  <div class="quotes-grid">
-    <div class="qcard">
-      <div class="qmark">"</div>
-      <div class="qtext">Every time I listed something on Facebook Marketplace I'd get three no-shows and someone trying to lowball me at the last minute. There has to be a better way.</div>
-      <div class="qname">Parent, Adelaide SA</div>
-      <div class="qctx">Trying to sell a Bugaboo pram for 6 months</div>
-    </div>
-    <div class="qcard">
-      <div class="qmark">"</div>
-      <div class="qtext">I'd buy secondhand gear all day long if I could trust it hadn't been recalled. That's the one thing that stops me every time I go to pull the trigger on Gumtree.</div>
-      <div class="qname">Parent, Melbourne VIC</div>
-      <div class="qctx">First-time mum researching secondhand cots</div>
-    </div>
-    <div class="qcard">
-      <div class="qmark">"</div>
-      <div class="qtext">I have $2,000 worth of gear sitting in the garage that I just haven't gotten around to selling. If someone made it easy and safe, I'd have listed it a year ago.</div>
-      <div class="qname">Parent, Brisbane QLD</div>
-      <div class="qctx">Two kids, garage full of outgrown gear</div>
-    </div>
-  </div>
-</div>
-
-<!-- WHY WE'RE BUILDING THIS -->
-<div class="section">
-  <div class="sh">
-    <div class="stag">WHY WE'RE BUILDING THIS</div>
-    <div class="sttl">A marketplace that actually earns trust</div>
-  </div>
-  <div class="founder-inner">
-    <div style="text-align:center">
-      <div class="founder-ava"><i class="ti ti-user" style="font-size:30px;color:var(--coral)" aria-hidden="true"></i></div>
-      <div class="founder-loc">Adelaide, SA</div>
-    </div>
-    <div>
-      <div class="founder-quote">"We kept seeing the same problem: quality gear sitting unused in garages, recalled items quietly circulating on Marketplace, and parents who wanted to do the right thing but had no trustworthy way to do it. TotLoop is our answer to that — a marketplace built on verification first, community second, and commerce third."</div>
-      <div class="founder-name">Alex & Team, TotLoop · Adelaide SA</div>
+      <div class="cc-dis">Based on average Australian resale market prices. Actual results may vary.</div>
     </div>
   </div>
 </div>
 
 <!-- PRICING -->
-<div class="pricing">
-  <div class="pricing-head">
+<div class="pricing-sec" id="pricing">
+  <div class="ph">
     <h2>Simple, honest pricing</h2>
     <p>Rewarding the parents who back us early.</p>
   </div>
   <div class="pgrid">
     <div class="plan pf">
-      <div class="pbadge"><i class="ti ti-star" style="font-size:10px" aria-hidden="true"></i> Founding Member · <span id="plan-spots">347 left</span></div>
+      <div class="pbadge"><i class="ti ti-star" style="font-size:10px" aria-hidden="true"></i> Founding · <span id="plan-spots">347 left</span></div>
       <div class="pname">Founding Member</div>
       <div class="pprice">Free</div>
       <div class="psub">Forever. No catches.</div>
@@ -517,12 +512,12 @@
       <div class="pbadge std">Standard Member</div>
       <div class="pname">Standard</div>
       <div class="pprice">Coming soon</div>
-      <div class="psub">Pricing TBC at launch</div>
+      <div class="psub">Pricing announced at launch</div>
       <ul class="plist">
-        <li>Commission per sale</li>
-        <li>Monthly or annual option</li>
+        <li>Transparent fee per sale</li>
+        <li>Monthly or annual subscription option</li>
         <li>Full platform access</li>
-        <li>Buyer protection included</li>
+        <li>Buyer protection on all orders</li>
         <li>ACCC verified listings</li>
       </ul>
       <button class="pbtn">Notify me at launch</button>
@@ -530,47 +525,30 @@
   </div>
   <div class="pspot">153 of 500 founding spots claimed</div>
   <div class="pbar"><div class="pbarfill" id="pbarfill" style="width:30.6%"></div></div>
-</div>
 
-<!-- FAQ -->
-<div class="section" id="faq">
-  <div class="sh">
-    <div class="stag">YOUR QUESTIONS ANSWERED</div>
-    <div class="sttl">Frequently Asked Questions</div>
-    <div class="ssub">Everything you need to know before joining the loop.</div>
-  </div>
-  <div class="faq-list">
+  <div class="faq-wrap">
+    <div class="faq-hd">COMMON QUESTIONS</div>
     <div class="faq-item">
       <div class="faq-q">How does TotLoop verify listings?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
-      <div class="faq-a"><div class="faq-a-inner">Every listing is manually reviewed against the ACCC product safety recalls register before it goes live. Sellers must declare the item's condition, age, and any known safety history. Items flagged on the recall register are removed immediately and the seller is notified.</div></div>
+      <div class="faq-a"><div class="faq-a-inner">Every listing is manually reviewed against the ACCC product safety recall register before it goes live. Sellers declare condition, age, and safety history. Items on the recall register are removed immediately.</div></div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">What items can I list on TotLoop?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
-      <div class="faq-a"><div class="faq-a-inner">Prams and strollers, car seats (under 10 years old), cots and nursery furniture, baby carriers, clothing 0–8 years, and toys. Items currently on the ACCC recall register or prohibited under Australian Consumer Law cannot be listed. Full prohibited items list available in our safety policy.</div></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Is my payment protected if something goes wrong?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
-      <div class="faq-a"><div class="faq-a-inner">Yes. All payments go through secure escrow, held until the buyer confirms the item was received as described. If there's a dispute, our team steps in to resolve it. Buyers are never left exposed on TotLoop.</div></div>
+      <div class="faq-q">Is my payment protected?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
+      <div class="faq-a"><div class="faq-a-inner">Yes. All payments go through secure escrow, held until the buyer confirms the item arrived as described. If there's a dispute, our team steps in. Buyers are never left exposed.</div></div>
     </div>
     <div class="faq-item">
       <div class="faq-q">When is TotLoop launching?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
-      <div class="faq-a"><div class="faq-a-inner">We're currently building our founding member community ahead of launch. The first 500 sellers join completely free. Everyone on the waitlist will be personally notified before we go live — you won't miss it.</div></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">What does it cost to sell on TotLoop?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
-      <div class="faq-a"><div class="faq-a-inner">Founding members — the first 500 sellers — pay zero commission forever. No subscription, no per-listing fees, no hidden charges. Standard member pricing will be announced at launch. Founding spots are limited and filling fast.</div></div>
+      <div class="faq-a"><div class="faq-a-inner">We're building our founding member community now. Everyone on the waitlist gets a personal heads-up before we go live — you won't miss it.</div></div>
     </div>
     <div class="faq-item" style="border-bottom:none">
-      <div class="faq-q">What about local pickup — how does escrow work?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
-      <div class="faq-a"><div class="faq-a-inner">For local pickups, TotLoop holds payment in escrow until the buyer confirms the item is as described after inspecting it in person. This protects both parties without requiring shipping — and eliminates cash transactions with unverified strangers.</div></div>
+      <div class="faq-q">What items can I list?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
+      <div class="faq-a"><div class="faq-a-inner">Prams, car seats (under 10 years), cots and nursery furniture, baby carriers, clothing 0–8 years, and toys. Items on the ACCC recall register cannot be listed.</div></div>
     </div>
   </div>
-  <div class="faq-cta">
-    <div>
-      <div style="font-size:15px;font-weight:800;color:var(--dark)">Still curious?</div>
-      <div style="font-size:12px;color:var(--mid);margin-top:3px">Reach us at <a href="mailto:hello@totloop.com.au" style="color:var(--coral);font-weight:700">hello@totloop.com.au</a> — we reply within 2 hours.</div>
-    </div>
-    <button style="background:var(--coral);color:white;border:none;border-radius:99px;padding:9px 18px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;cursor:pointer" onclick="openModal('nav')">Join the waitlist →</button>
+
+  <div class="pricing-cta">
+    <p>Still have questions? <a href="mailto:hello@totloop.com.au" style="color:rgba(255,255,255,.5)">hello@totloop.com.au</a></p>
+    <button style="background:var(--coral);color:white;border:none;border-radius:99px;padding:11px 24px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;cursor:pointer" onclick="openModal('nav')">Join the waitlist →</button>
   </div>
 </div>
 
@@ -579,29 +557,28 @@
   <div class="fgrid">
     <div>
       <div class="flogo-wrap">
-        <div style="width:28px;height:28px;border-radius:50%;background:var(--coral-lt);display:flex;align-items:center;justify-content:center"><i class="ti ti-refresh" style="font-size:13px;color:var(--coral)" aria-hidden="true"></i></div>
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--clt);display:flex;align-items:center;justify-content:center"><i class="ti ti-refresh" style="font-size:13px;color:var(--coral)" aria-hidden="true"></i></div>
         <span><span class="logo-tot" style="font-size:15px">tot</span><span class="logo-loop" style="font-size:19px">loop</span></span>
       </div>
-      <div class="fdesc">Premium secondhand marketplace for pre-loved nursery items, prams, and gear. Built for Australian mums, dads, and future loopers.</div>
+      <div class="fdesc">Pre-loved baby gear, done right. Built for Australian families.</div>
       <div class="fcit">Melbourne · Sydney · Brisbane · Adelaide</div>
     </div>
     <div>
-      <div class="fct">Safety</div>
-      <a class="flnk">Child Safety Handbook (AS 2088)</a>
-      <a class="flnk">ACCC Prohibited Blacklist</a>
-      <a class="flnk">Secure Escrow Logic</a>
+      <div class="fct">Platform</div>
+      <a class="flnk">How it works</a>
+      <a class="flnk">Safety policy</a>
+      <a class="flnk">ACCC recall list</a>
     </div>
     <div>
-      <div class="fct">Information</div>
-      <a class="flnk">About Us</a>
+      <div class="fct">Support</div>
       <a class="flnk">FAQ</a>
-      <a class="flnk" href="mailto:hello@totloop.com.au">Contact Support</a>
+      <a class="flnk" href="mailto:hello@totloop.com.au">Contact us</a>
     </div>
     <div>
       <div class="fct">Legal</div>
-      <a class="flnk">Terms of Service</a>
-      <a class="flnk">Privacy Policy</a>
-      <a class="flnk hl">Admin Login</a>
+      <a class="flnk">Terms of service</a>
+      <a class="flnk">Privacy policy</a>
+      <a class="flnk hl">Admin login</a>
     </div>
   </div>
   <div class="fbot">© 2025 TotLoop Australia Pty Ltd · Made with care in Adelaide, SA</div>
@@ -614,8 +591,8 @@
     <div id="md">
       <div class="mtag" id="mtag">Coming soon</div>
       <div class="mh" id="mh">TotLoop isn't live yet.</div>
-      <div class="msub" id="msub">Be the first to know when we launch in your city. Takes 10 seconds.</div>
-      <div class="mfbar">⭐ <strong>Founding Member Offer:</strong> First 500 sellers join free — no fees, ever. <strong id="mspot-txt"> 347 spots remaining.</strong></div>
+      <div class="msub" id="msub">Be the first to know when we launch near you. Takes 10 seconds.</div>
+      <div class="mfbar">⭐ <strong>Founding offer:</strong> First 500 sellers join free — no fees, ever. <strong id="mspot-txt"> 347 spots remaining.</strong></div>
       <div class="mlbl">I'm a:</div>
       <div class="mrole">
         <div class="rbtn sel" id="rb1" onclick="sr('buyer')" role="radio" aria-checked="true" tabindex="0">🛒 Buyer</div>
@@ -629,7 +606,7 @@
       <div class="succ">
         <div class="sico">✓</div>
         <div class="mh" id="msh" style="margin-bottom:6px">You're on the list!</div>
-        <div class="msub" id="mss">We'll reach out the moment TotLoop launches near you. Thanks for supporting something better for Australian parents.</div>
+        <div class="msub" id="mss">We'll reach out the moment TotLoop launches near you.</div>
         <button class="mbtn" style="margin-top:1.25rem" onclick="closeModal()">Back to preview</button>
       </div>
     </div>
@@ -637,166 +614,161 @@
 </div>
 
 <script>
-  /* ── TALLY INTEGRATION ──────────────────────────────────────────────────────
-     STEP 1: Create your form at tally.so (email field hidden, role + founding as hidden fields)
-     STEP 2: Paste your form ID here — the code after /r/ in your Tally URL
-     Example: if your URL is tally.so/r/w4xyz1, your ID is w4xyz1
-  ─────────────────────────────────────────────────────────────────────────── */
-  const TALLY_FORM_ID = 'YOUR_TALLY_FORM_ID'; // ← Replace this
+  /* ── TALLY ──────────────────────────────────────────────────────────────────
+     Replace YOUR_TALLY_FORM_ID with the code after /r/ in your Tally form URL
+  ── */
+  const TALLY_FORM_ID = 'YOUR_TALLY_FORM_ID';
 
   /* ── STATE ── */
-  let spots = 347;
-  let role = 'buyer';
-
-  /* ── CALCULATOR ── */
-  const CAT_AVG  = { mixed: 272, pram: 650, seat: 280, cot: 180, clothing: 55 };
-  const CAT_SAVE = { mixed: 60,  pram: 63,  seat: 52,  cot: 56,  clothing: 67 };
-  let calcCat = 'mixed', calcQty = 5;
-
-  function calcUpdate() {
-    const earn = Math.round(CAT_AVG[calcCat] * calcQty * 0.915 / 10) * 10;
-    document.getElementById('ce').textContent = '$' + earn.toLocaleString();
-    document.getElementById('cs').textContent = '~' + CAT_SAVE[calcCat] + '%';
-    document.getElementById('ci').textContent = calcQty + (calcQty === 1 ? ' item' : ' items');
-    document.getElementById('qs').textContent = calcQty + (calcQty === 1 ? ' item' : ' items');
-  }
-  function setQty(v) { calcQty = parseInt(v); calcUpdate(); }
-  function setCat(el, cat) {
-    document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('act'));
-    el.classList.add('act');
-    calcCat = cat;
-    calcUpdate();
-  }
+  let spots = 347, role = 'buyer', listView = 'buyer';
 
   /* ── LISTINGS ── */
-  /* NOTE: Replace seed values with real product photo URLs when available */
-  const listings = [
-    { b:'Silver Cross', n:'Reef3 — Orbit Grey',  c:'Excellent', cls:'ce',  price:680, rrp:1999, loc:'Norwood SA',      seed:'sc-pram-orbit'     },
-    { b:'Ergobaby',     n:'Omni 360 Carrier',     c:'Like New',  cls:'cl2', price:175, rrp:379,  loc:'Richmond VIC',    seed:'ergo-baby-c'       },
-    { b:'IKEA',         n:'SUNDVIK Cot + Mattress',c:'Good',     cls:'cg',  price:110, rrp:399,  loc:'Surry Hills NSW', seed:'ikea-cot-white'    },
-    { b:'Bugaboo',      n:'Fox 3 — Sage Green',   c:'Excellent', cls:'ce',  price:920, rrp:2299, loc:'Paddington QLD',  seed:'bugaboo-sage-fox'  },
-    { b:'UPPAbaby',     n:'MESA V2 Car Seat',      c:'Like New',  cls:'cl2', price:290, rrp:599,  loc:'Glenelg SA',     seed:'uppababy-mesa-v2'  },
-    { b:'BabyBjörn',   n:'Bouncer Bliss',          c:'Good',      cls:'cg',  price:130, rrp:329,  loc:'Cottesloe WA',   seed:'bjorn-bouncer'     }
+  const items = [
+    { emoji:'🛺', brand:'Silver Cross', name:'Reef3 Pram — Orbit Grey',   cond:'Excellent', cls:'ce', loc:'Norwood SA',     price:680, rrp:1999 },
+    { emoji:'🎒', brand:'Ergobaby',     name:'Omni 360 Baby Carrier',      cond:'Like New',  cls:'cl', loc:'Richmond VIC',   price:175, rrp:379  },
+    { emoji:'🚗', brand:'Bugaboo',      name:'Fox 3 Pram — Sage Green',    cond:'Excellent', cls:'ce', loc:'Paddington QLD', price:920, rrp:2299 }
   ];
 
-  document.getElementById('lgrid').innerHTML = listings.map(l => `
-    <div class="lcard" onclick="openModal('listing')" role="button" tabindex="0" aria-label="View example listing: ${l.n}">
-      <img src="https://picsum.photos/seed/${l.seed}/400/300" alt="${l.n}" loading="lazy" onerror="this.style.background='#FAEAEA';this.style.height='150px'">
+  function pct(i)  { return Math.round((1 - i.price/i.rrp)*100); }
+  function com(i)  { return Math.round(i.price * 0.085); }
+  function earn(i) { return i.price - com(i); }
+
+  function buyerCard(i) { return `
+    <div class="lcard">
+      <div class="lcard-img">${i.emoji}</div>
       <div class="lcb">
         <div class="lexbadge">Example listing</div>
-        <div class="lbr">${l.b}</div>
-        <div class="lnm">${l.n}</div>
-        <div class="lcrow"><span class="cb ${l.cls}">${l.c}</span><span class="lloc">${l.loc}</span></div>
-        <div class="lpr"><span class="lp">$${l.price}</span><span class="lr">$${l.rrp}</span><span class="ls">${Math.round((1 - l.price / l.rrp) * 100)}% off</span></div>
+        <div class="lbrand">${i.brand}</div>
+        <div class="lname">${i.name}</div>
+        <div class="lrow"><span class="cb ${i.cls}">${i.cond}</span><span class="lloc">${i.loc}</span></div>
+        <div class="lrow"><span class="vbadge"><i class="ti ti-check" style="font-size:9px" aria-hidden="true"></i> ACCC Verified</span></div>
+        <div class="lpr"><span class="lp">$${i.price}</span><span class="lr">$${i.rrp}</span><span class="ls">${pct(i)}% off</span></div>
+        <button class="view-btn" onclick="openModal('listing')">View listing →</button>
       </div>
-    </div>`).join('');
+    </div>`; }
 
-  /* ── TICKER ── */
-  const ticks = [
-    '85% of baby clothing ends in landfill within 12 months — TotLoop keeps it circulating',
-    'Babies outgrow 7 clothing sizes in their first 2 years of life',
-    'CHOICE found recalled portacots still listed on Gumtree in 2024',
-    'Australian parents spend an average of $3,000+ on baby gear in year one',
-    'The average unused pram in Australia has been sitting idle for 2+ years',
-    'A $2,000 pram bought new loses 60%+ of its value within 18 months',
-    'Every listing on TotLoop is cross-checked against the ACCC recall register'
-  ];
-  const td = [...ticks, ...ticks];
-  document.getElementById('ticker').innerHTML = td.map(t =>
-    `<span class="titem"><span class="tdot"></span>${t}</span>`
-  ).join('');
+  function sellerCard(i) { return `
+    <div class="lcard">
+      <div class="lcard-img">${i.emoji}</div>
+      <div class="lcb">
+        <div class="lexbadge">Example listing</div>
+        <div class="lbrand">${i.brand}</div>
+        <div class="lname">${i.name}</div>
+        <hr class="ldivider">
+        <div class="earn-row"><span class="earn-lbl">Your listing price</span><span class="earn-val">$${i.price}</span></div>
+        <div class="earn-row"><span class="earn-lbl">TotLoop fee</span><span class="earn-val neg">−$${com(i)}</span></div>
+        <div class="earn-total"><span class="earn-total-lbl">You receive</span><span class="earn-total-val">$${earn(i)}</span></div>
+        <div class="founder-row">
+          <div class="founder-top"><span class="founder-lbl">⭐ As a founding member</span><span class="founder-val">$${i.price}</span></div>
+          <div class="founder-sub">Zero fees — you keep $${com(i)} more</div>
+        </div>
+        <button class="list-btn" onclick="openModal('sell')">List this item →</button>
+      </div>
+    </div>`; }
 
-  /* ── FAQ ACCORDION ── */
+  function renderListings() {
+    document.getElementById('lgrid').innerHTML = items.map(i =>
+      listView === 'buyer' ? buyerCard(i) : sellerCard(i)
+    ).join('');
+  }
+
+  function setView(v) {
+    listView = v;
+    document.getElementById('t-buyer').className = v==='buyer' ? 'topt act' : 'topt';
+    document.getElementById('t-seller').className = v==='seller' ? 'topt act' : 'topt';
+    document.getElementById('toggle-hint').textContent = v==='buyer'
+      ? 'See what buyers find on TotLoop'
+      : 'See what sellers earn on TotLoop';
+    renderListings();
+  }
+
+  /* ── CALCULATOR ── */
+  const CA  = { mixed:272, pram:650, seat:280, cot:180, clothing:55 };
+  const CS  = { mixed:60,  pram:63,  seat:52,  cot:56,  clothing:67 };
+  let cat = 'mixed', qty = 5;
+
+  function calcUpdate() {
+    const e = Math.round(CA[cat]*qty*0.915/10)*10;
+    document.getElementById('ce').textContent = '$' + e.toLocaleString();
+    document.getElementById('cs').textContent = '~' + CS[cat] + '%';
+    document.getElementById('ci').textContent = qty + (qty===1?' item':' items');
+    document.getElementById('qs').textContent = qty + (qty===1?' item':' items');
+  }
+  function setQty(v) { qty = parseInt(v); calcUpdate(); }
+  function setCat(el,c) {
+    document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('act'));
+    el.classList.add('act'); cat = c; calcUpdate();
+  }
+
+  /* ── FAQ ── */
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
-      const item = q.parentElement;
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+      const it = q.parentElement, op = it.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+      if (!op) it.classList.add('open');
     });
   });
 
-  /* ── SPOT COUNTER ── */
+  /* ── SPOTS ── */
   function updateSpots() {
-    const taken = 500 - spots;
-    const pct = (taken / 500 * 100).toFixed(1);
-    document.getElementById('fspot-txt').textContent   = spots + ' spots left';
-    document.getElementById('plan-spots').textContent  = spots + ' left';
-    document.getElementById('mspot-txt').textContent   = ' ' + spots + ' spots remaining.';
-    document.getElementById('sfill').style.width       = pct + '%';
-    document.getElementById('pbarfill').style.width    = pct + '%';
+    const pct = ((500-spots)/500*100).toFixed(1);
+    document.getElementById('sfill').style.width    = pct + '%';
+    document.getElementById('fspot-txt').textContent = spots + ' spots left';
+    document.getElementById('plan-spots').textContent = spots + ' left';
+    document.getElementById('mspot-txt').textContent  = ' ' + spots + ' spots remaining.';
+    if (document.getElementById('pbarfill'))
+      document.getElementById('pbarfill').style.width = pct + '%';
   }
 
-  /* ── ROLE TOGGLE ── */
+  /* ── ROLE ── */
   function sr(r) {
     role = r;
-    document.getElementById('rb1').className = r === 'buyer'  ? 'rbtn sel' : 'rbtn';
-    document.getElementById('rb2').className = r === 'seller' ? 'rbtn sel' : 'rbtn';
-    document.getElementById('rb1').setAttribute('aria-checked', r === 'buyer');
-    document.getElementById('rb2').setAttribute('aria-checked', r === 'seller');
+    document.getElementById('rb1').className = r==='buyer'  ? 'rbtn sel' : 'rbtn';
+    document.getElementById('rb2').className = r==='seller' ? 'rbtn sel' : 'rbtn';
   }
 
   /* ── MODAL ── */
   function openModal(src) {
-    const mv = document.getElementById('mv');
-    mv.style.display = 'flex';
+    document.getElementById('mv').style.display = 'flex';
     document.getElementById('md').style.display = 'block';
     document.getElementById('ms').style.display = 'none';
     document.getElementById('ei').style.borderColor = '';
-
-    if (src === 'sell' || src === 'founding') {
+    if (src==='sell'||src==='founding') {
       sr('seller');
       document.getElementById('mtag').textContent = 'Founding Member Offer';
       document.getElementById('mh').textContent   = 'Claim your free spot.';
-      document.getElementById('msub').textContent = 'First 500 sellers join TotLoop completely free — zero commission, zero subscription fees, forever.';
+      document.getElementById('msub').textContent = 'First 500 sellers join TotLoop completely free — zero fees, forever.';
     } else {
       sr('buyer');
       document.getElementById('mtag').textContent = 'Coming soon';
       document.getElementById('mh').textContent   = "TotLoop isn't live yet.";
-      document.getElementById('msub').textContent = 'Be the first to know when we launch in your city. Takes 10 seconds.';
+      document.getElementById('msub').textContent = 'Be the first to know when we launch near you.';
     }
-
-    mv.addEventListener('click', handleOverlay);
-    document.addEventListener('keydown', handleEsc);
+    document.getElementById('mv').addEventListener('click', e => { if(e.target===document.getElementById('mv')) closeModal(); });
+    document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); }, {once:true});
   }
 
-  function closeModal() {
-    document.getElementById('mv').style.display = 'none';
-    document.removeEventListener('keydown', handleEsc);
-  }
-
-  function handleOverlay(e) { if (e.target === document.getElementById('mv')) closeModal(); }
-  function handleEsc(e)     { if (e.key === 'Escape') closeModal(); }
+  function closeModal() { document.getElementById('mv').style.display = 'none'; }
 
   /* ── SUBMIT ── */
   function sub() {
     const ei = document.getElementById('ei');
-    if (!ei.value || !ei.value.includes('@')) { ei.style.borderColor = '#E24B4A'; ei.focus(); return; }
-
-    const emailVal = ei.value;
-    const roleVal  = role;
-
-    if (roleVal === 'seller' && spots > 0) { spots--; updateSpots(); }
-
+    if (!ei.value||!ei.value.includes('@')) { ei.style.borderColor='#E24B4A'; ei.focus(); return; }
+    const emailVal = ei.value, roleVal = role;
+    if (roleVal==='seller'&&spots>0) { spots--; updateSpots(); }
     closeModal();
-
-    if (typeof Tally !== 'undefined' && TALLY_FORM_ID !== 'YOUR_TALLY_FORM_ID') {
+    if (typeof Tally!=='undefined'&&TALLY_FORM_ID!=='YOUR_TALLY_FORM_ID') {
       Tally.openPopup(TALLY_FORM_ID, {
-        layout: 'modal',
-        width: 480,
-        autoClose: 3000,
-        hiddenFields: {
-          email:    emailVal,
-          role:     roleVal,
-          founding: roleVal === 'seller' ? 'yes' : 'no'
-        }
+        layout:'modal', width:480, autoClose:3000,
+        hiddenFields:{ email:emailVal, role:roleVal, founding:roleVal==='seller'?'yes':'no' }
       });
-    } else if (TALLY_FORM_ID !== 'YOUR_TALLY_FORM_ID') {
-      const params = new URLSearchParams({ email: emailVal, role: roleVal, founding: roleVal === 'seller' ? 'yes' : 'no' });
-      window.open(`https://tally.so/r/${TALLY_FORM_ID}?${params.toString()}`, '_blank');
+    } else if (TALLY_FORM_ID!=='YOUR_TALLY_FORM_ID') {
+      const p = new URLSearchParams({email:emailVal,role:roleVal,founding:roleVal==='seller'?'yes':'no'});
+      window.open('https://tally.so/r/'+TALLY_FORM_ID+'?'+p.toString(),'_blank');
     }
   }
 
+  renderListings();
   calcUpdate();
 </script>
 </body>
