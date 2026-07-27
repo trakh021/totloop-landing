@@ -617,7 +617,7 @@
   /* ── TALLY ──────────────────────────────────────────────────────────────────
      Replace YOUR_TALLY_FORM_ID with the code after /r/ in your Tally form URL
   ── */
-  const TALLY_FORM_ID = 'YOUR_TALLY_FORM_ID';
+  const TALLY_FORM_ID = '9qaJ81';
 
   /* ── STATE ── */
   let spots = 347, role = 'buyer', listView = 'buyer';
@@ -757,12 +757,12 @@
     const emailVal = ei.value, roleVal = role;
     if (roleVal==='seller'&&spots>0) { spots--; updateSpots(); }
     closeModal();
-    if (typeof Tally!=='undefined'&&TALLY_FORM_ID!=='YOUR_TALLY_FORM_ID') {
+    if (typeof Tally!=='undefined'&&TALLY_FORM_ID!=='9qaJ81') {
       Tally.openPopup(TALLY_FORM_ID, {
         layout:'modal', width:480, autoClose:3000,
         hiddenFields:{ email:emailVal, role:roleVal, founding:roleVal==='seller'?'yes':'no' }
       });
-    } else if (TALLY_FORM_ID!=='YOUR_TALLY_FORM_ID') {
+    } else if (TALLY_FORM_ID!=='9qaJ81') {
       const p = new URLSearchParams({email:emailVal,role:roleVal,founding:roleVal==='seller'?'yes':'no'});
       window.open('https://tally.so/r/'+TALLY_FORM_ID+'?'+p.toString(),'_blank');
     }
