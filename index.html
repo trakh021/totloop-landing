@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="TotLoop — Australia's first curated, safety-verified marketplace for pre-loved baby gear. Every listing checked against ACCC recalls. Coming soon.">
-  <meta property="og:title" content="TotLoop — Outgrown, never outdated.">
+  <meta name="description" content="littleLoom — Australia's first curated, safety-verified marketplace for pre-loved baby gear. Every listing checked against ACCC recalls. Coming soon.">
+  <meta property="og:title" content="littleLoom — Outgrown, never outdated.">
   <meta property="og:description" content="Australia's first curated, safety-verified marketplace for pre-loved baby gear. Join the waitlist.">
   <meta property="og:type" content="website">
-  <title>TotLoop — Outgrown, never outdated.</title>
+  <title>littleLoom — Outgrown, never outdated.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
@@ -19,9 +19,9 @@
     body { font-family: 'Nunito', -apple-system, sans-serif; background: #FBF7F4; color: #1A1A2E; -webkit-font-smoothing: antialiased; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     :root { --coral:#E8736A; --clt:#FAEAEA; --dark:#1A1A2E; --mid:#4A5568; --muted:#9CA3AF; --bg:#FBF7F4; --bdr:rgba(0,0,0,.07); }
-    .logo-tot  { font-family:'Nunito',sans-serif; font-weight:800; font-size:18px; color:var(--dark); }
-    .logo-loop { font-family:'Dancing Script',cursive; font-size:22px; color:var(--coral); }
-    .joy       { font-family:'Dancing Script',cursive; color:var(--coral); font-size:clamp(30px,5vw,52px); }
+    .logo-little { font-family:'Nunito',sans-serif; font-weight:800; font-size:17px; color:var(--dark); }
+    .logo-loom   { font-family:'Nunito',sans-serif; font-weight:800; font-size:17px; color:var(--coral); }
+    .joy { font-family:'Dancing Script',cursive; color:var(--coral); font-size:clamp(30px,5vw,52px); }
 
     .fbar { background:var(--coral); color:white; padding:.5rem 2rem; display:flex; align-items:center; justify-content:space-between; gap:.75rem; flex-wrap:wrap; position:sticky; top:0; z-index:200; }
     .fbar-l { font-size:12px; font-weight:700; display:flex; align-items:center; gap:.5rem; }
@@ -62,7 +62,6 @@
     .stag { font-size:11px; font-weight:800; color:var(--coral); letter-spacing:.08em; text-transform:uppercase; margin-bottom:6px; }
     .sttl { font-size:22px; font-weight:800; color:var(--dark); margin-bottom:6px; }
     .ssub { font-size:13px; color:var(--mid); line-height:1.6; }
-
     .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:1.5rem; }
     .step { background:var(--bg); border-radius:16px; padding:1.25rem; border:1px solid var(--bdr); }
     .step-top { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:.875rem; }
@@ -158,23 +157,17 @@
     .pbadge { display:inline-flex; align-items:center; gap:5px; background:var(--coral); color:white; font-size:10px; font-weight:800; padding:4px 10px; border-radius:99px; margin-bottom:1rem; }
     .pbadge.std { background:rgba(255,255,255,.12); color:rgba(255,255,255,.6); }
     .pname { font-size:14px; font-weight:800; margin-bottom:3px; }
-    .pf .pname { color:var(--dark); }
-    .ps .pname { color:rgba(255,255,255,.85); }
+    .pf .pname { color:var(--dark); } .ps .pname { color:rgba(255,255,255,.85); }
     .pprice { font-size:34px; font-weight:800; margin-bottom:3px; }
-    .pf .pprice { color:var(--coral); }
-    .ps .pprice { color:rgba(255,255,255,.3); font-size:22px; margin-top:6px; }
+    .pf .pprice { color:var(--coral); } .ps .pprice { color:rgba(255,255,255,.3); font-size:22px; margin-top:6px; }
     .psub { font-size:11px; font-weight:700; margin-bottom:1.125rem; }
-    .pf .psub { color:var(--muted); }
-    .ps .psub { color:rgba(255,255,255,.3); }
+    .pf .psub { color:var(--muted); } .ps .psub { color:rgba(255,255,255,.3); }
     .plist { list-style:none; margin-bottom:1.375rem; }
     .plist li { font-size:12px; font-weight:600; padding:4px 0; display:flex; align-items:center; gap:7px; }
-    .pf .plist li { color:var(--dark); }
-    .pf .plist li::before { content:'✓'; color:var(--coral); font-weight:800; font-size:14px; }
-    .ps .plist li { color:rgba(255,255,255,.5); }
-    .ps .plist li::before { content:'✓'; color:rgba(255,255,255,.2); }
+    .pf .plist li { color:var(--dark); } .pf .plist li::before { content:'✓'; color:var(--coral); font-weight:800; font-size:14px; }
+    .ps .plist li { color:rgba(255,255,255,.5); } .ps .plist li::before { content:'✓'; color:rgba(255,255,255,.2); }
     .pbtn { width:100%; border:none; border-radius:99px; padding:12px; font-family:'Nunito',sans-serif; font-size:13px; font-weight:800; cursor:pointer; }
-    .pf .pbtn { background:var(--coral); color:white; }
-    .ps .pbtn { background:rgba(255,255,255,.08); color:rgba(255,255,255,.35); cursor:default; }
+    .pf .pbtn { background:var(--coral); color:white; } .ps .pbtn { background:rgba(255,255,255,.08); color:rgba(255,255,255,.35); cursor:default; }
     .pspot { text-align:center; margin-top:1.25rem; font-size:11px; color:rgba(255,255,255,.35); }
     .pbar { width:220px; height:5px; background:rgba(255,255,255,.1); border-radius:99px; overflow:hidden; margin:.625rem auto 0; }
     .pbarfill { height:100%; background:var(--coral); border-radius:99px; }
@@ -258,7 +251,7 @@
 <nav class="nav">
   <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
     <div class="logo-ic"><i class="ti ti-refresh" aria-hidden="true"></i></div>
-    <span><span class="logo-tot">tot</span><span class="logo-loop">loop</span></span>
+    <span><span class="logo-little">little</span><span class="logo-loom">Loom</span></span>
   </div>
   <div class="navl">
     <a onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">How it works</a>
@@ -342,7 +335,7 @@
     <i class="ti ti-lock" style="font-size:22px;color:#185FA5;flex-shrink:0" aria-hidden="true"></i>
     <div>
       <div class="trust-q">Are listings safety checked?</div>
-      <div class="trust-a">Every listing is cross-checked against the live ACCC recall register before it goes live on TotLoop.</div>
+      <div class="trust-a">Every listing is cross-checked against the live ACCC recall register before it goes live on littleLoom.</div>
     </div>
   </div>
   <button class="tbtn" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Learn more →</button>
@@ -353,7 +346,7 @@
     <div>
       <div class="stag">EXAMPLE LISTINGS</div>
       <div class="sttl">A taste of what's coming</div>
-      <div class="ssub">Illustrative examples only. Toggle to see TotLoop from both sides of the transaction.</div>
+      <div class="ssub">Illustrative examples only. Toggle to see littleLoom from both sides of the transaction.</div>
     </div>
   </div>
   <div class="listing-toggle-wrap">
@@ -362,14 +355,14 @@
       <button class="topt act" id="t-buyer" onclick="setView('buyer')">🛒 Buyer</button>
       <button class="topt" id="t-seller" onclick="setView('seller')">🏷️ Seller</button>
     </div>
-    <span class="toggle-hint" id="toggle-hint">See what buyers find on TotLoop</span>
+    <span class="toggle-hint" id="toggle-hint">See what buyers find on littleLoom</span>
   </div>
   <div class="lgrid" id="lgrid"></div>
 </div>
 
 <div class="sec wh">
   <div class="stag">THE PROBLEM WE'RE SOLVING</div>
-  <div class="sttl">Why TotLoop exists</div>
+  <div class="sttl">Why littleLoom exists</div>
   <div class="ssub">The secondhand baby gear market is broken. Here's what parents kept telling us.</div>
   <div class="stats-row">
     <div class="sstat"><div class="sstat-n">85%</div><div class="sstat-l">of baby gear ends in landfill within 12 months</div></div>
@@ -395,7 +388,7 @@
 <div class="sec" id="calc">
   <div class="stag">INTERACTIVE CALCULATOR</div>
   <div class="sttl">See what your unused gear is worth</div>
-  <div class="ssub">Estimate your earnings as a TotLoop seller. Based on average Australian resale market prices.</div>
+  <div class="ssub">Estimate your earnings as a littleLoom seller. Based on average Australian resale market prices.</div>
   <div class="calc-grid">
     <div>
       <div class="clabel">What are you selling?</div>
@@ -410,7 +403,7 @@
       <div class="slider-lbl"><span>Items to sell</span><span id="qs" style="color:var(--coral)">5 items</span></div>
       <input type="range" min="1" max="15" value="5" step="1" id="qty-s" oninput="setQty(this.value)">
       <div class="range-ends"><span>1 item</span><span>15 items</span></div>
-      <div class="cfact"><strong>Did you know?</strong> Over 85% of baby gear ends up in landfill or storage within 12 months of being outgrown. TotLoop keeps it circulating.</div>
+      <div class="cfact"><strong>Did you know?</strong> Over 85% of baby gear ends up in landfill or storage within 12 months of being outgrown. littleLoom keeps it circulating.</div>
     </div>
     <div class="calc-cards">
       <div class="cc-main">
@@ -475,7 +468,7 @@
   <div class="faq-wrap">
     <div class="faq-hd">COMMON QUESTIONS</div>
     <div class="faq-item">
-      <div class="faq-q">How does TotLoop verify listings?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
+      <div class="faq-q">How does littleLoom verify listings?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
       <div class="faq-a"><div class="faq-a-inner">Every listing is manually reviewed against the ACCC product safety recall register before it goes live. Sellers declare condition, age, and safety history. Items on the recall register are removed immediately.</div></div>
     </div>
     <div class="faq-item">
@@ -483,7 +476,7 @@
       <div class="faq-a"><div class="faq-a-inner">Yes. All payments go through secure escrow, held until the buyer confirms the item arrived as described. If there's a dispute, our team steps in. Buyers are never left exposed.</div></div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">When is TotLoop launching?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
+      <div class="faq-q">When is littleLoom launching?<i class="ti ti-chevron-down fchev" aria-hidden="true"></i></div>
       <div class="faq-a"><div class="faq-a-inner">We're building our founding member community now. Everyone on the waitlist gets a personal heads-up before we go live — you won't miss it.</div></div>
     </div>
     <div class="faq-item" style="border-bottom:none">
@@ -492,7 +485,7 @@
     </div>
   </div>
   <div style="text-align:center;margin-top:2rem">
-    <p style="font-size:12px;color:rgba(255,255,255,.35);margin-bottom:.75rem">Still have questions? <a href="mailto:hello@totloop.com.au" style="color:rgba(255,255,255,.4)">hello@totloop.com.au</a></p>
+    <p style="font-size:12px;color:rgba(255,255,255,.35);margin-bottom:.75rem">Still have questions? <a href="mailto:hello@littleloom.com.au" style="color:rgba(255,255,255,.4)">hello@littleloom.com.au</a></p>
     <button style="background:var(--coral);color:white;border:none;border-radius:99px;padding:11px 24px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;cursor:pointer" onclick="openModal('nav')">Join the waitlist →</button>
   </div>
 </div>
@@ -502,7 +495,7 @@
     <div>
       <div class="flogo-wrap">
         <div style="width:28px;height:28px;border-radius:50%;background:var(--clt);display:flex;align-items:center;justify-content:center"><i class="ti ti-refresh" style="font-size:13px;color:var(--coral)" aria-hidden="true"></i></div>
-        <span><span class="logo-tot" style="font-size:15px">tot</span><span class="logo-loop" style="font-size:19px">loop</span></span>
+        <span><span class="logo-little" style="font-size:15px">little</span><span class="logo-loom" style="font-size:15px">Loom</span></span>
       </div>
       <div class="fdesc">Pre-loved baby gear, done right. Built for Australian families.</div>
       <div class="fcit">Melbourne · Sydney · Brisbane · Adelaide</div>
@@ -516,7 +509,7 @@
     <div>
       <div class="fct">Support</div>
       <a class="flnk">FAQ</a>
-      <a class="flnk" href="mailto:hello@totloop.com.au">Contact us</a>
+      <a class="flnk" href="mailto:hello@littleloom.com.au">Contact us</a>
     </div>
     <div>
       <div class="fct">Legal</div>
@@ -525,7 +518,7 @@
       <a class="flnk hl">Admin login</a>
     </div>
   </div>
-  <div class="fbot">© 2025 TotLoop Australia Pty Ltd · Made with care in Adelaide, SA</div>
+  <div class="fbot">© 2025 littleLoom Australia Pty Ltd · Made with care in Adelaide, SA</div>
 </div>
 
 <div class="moverlay" id="mv" role="dialog" aria-modal="true">
@@ -533,7 +526,7 @@
     <button class="mclose" onclick="closeModal()" aria-label="Close modal"><i class="ti ti-x" aria-hidden="true"></i></button>
     <div id="md">
       <div class="mtag" id="mtag">Coming soon</div>
-      <div class="mh" id="mh">TotLoop isn't live yet.</div>
+      <div class="mh" id="mh">littleLoom isn't live yet.</div>
       <div class="msub" id="msub">Be the first to know when we launch near you. Takes 10 seconds.</div>
       <div class="mfbar">⭐ <strong>Founding offer:</strong> First 500 sellers join free — no fees, ever. <strong id="mspot-txt"> 347 spots remaining.</strong></div>
       <div class="mlbl">I'm a:</div>
@@ -549,7 +542,7 @@
       <div class="succ">
         <div class="sico">✓</div>
         <div class="mh" id="msh" style="margin-bottom:6px">You're on the list!</div>
-        <div class="msub" id="mss">We'll reach out the moment TotLoop launches near you.</div>
+        <div class="msub" id="mss">We'll reach out the moment littleLoom launches near you.</div>
         <button class="mbtn" style="margin-top:1.25rem" onclick="closeModal()">Back to preview</button>
       </div>
     </div>
@@ -557,163 +550,137 @@
 </div>
 
 <script>
-  /* ── TALLY ─────────────────────────────────────────────────────────────────
-     Replace YOUR_TALLY_FORM_ID with the code after /r/ in your Tally form URL
-     Your current form ID is: 9qaJ81
-  ── */
   const TALLY_FORM_ID = '9qaJ81';
-
   let spots = 347, role = 'buyer', listView = 'buyer';
 
-  /* ─────────────────────────────────────────────────────────────────────────
-     LISTINGS
-     To add a real photo to a card, add an img property with the photo URL.
-     Example: { emoji:'🛺', img:'https://your-photo-url.com/pram.jpg', brand:...
-     If img is present the photo shows; if not the emoji placeholder shows.
-  ── */
   const items = [
-    { img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkKkxvs2dHfZis7vwi_DNG81Y5mlz0kk7Ju_ZVsffZ4jBEXZbk3tieBc&s=10', brand:'Silver Cross', name:'Reef3 Pram — Orbit Grey',  cond:'Excellent', cls:'ce', loc:'Norwood SA',     price:680, rrp:1999 },
-    { img:'https://i.ebayimg.com/images/g/pjcAAOSwgbhkwIc3/s-l1200.jpg', brand:'Ergobaby',     name:'Omni 360 Baby Carrier',     cond:'Like New',  cls:'cl', loc:'Richmond VIC',   price:175, rrp:379  },
-    { img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST6Pzf9Y9uWM99Ie5Hnqc1Z-hfcVAhfN26MUjLNLWdpDx0R2RCtxbIeEws&s=10', brand:'Bugaboo',      name:'Fox 3 Pram — Sage Green',   cond:'Excellent', cls:'ce', loc:'Paddington QLD', price:920, rrp:2299 },
-    { img:'https://cb.scene7.com/is/image/Crate/UPPAbbMsV2InfCrStJBSSF22_VND', brand:'UPPAbaby',     name:'MESA V2 Car Seat',          cond:'Like New',  cls:'cl', loc:'Glenelg SA',     price:290, rrp:599  }
+    { emoji:'🛺', brand:'Silver Cross', name:'Reef3 Pram — Orbit Grey',  cond:'Excellent', cls:'ce', loc:'Norwood SA',     price:680, rrp:1999 },
+    { emoji:'🎒', brand:'Ergobaby',     name:'Omni 360 Baby Carrier',     cond:'Like New',  cls:'cl', loc:'Richmond VIC',   price:175, rrp:379  },
+    { emoji:'🚗', brand:'Bugaboo',      name:'Fox 3 Pram — Sage Green',   cond:'Excellent', cls:'ce', loc:'Paddington QLD', price:920, rrp:2299 },
+    { emoji:'🚙', brand:'UPPAbaby',     name:'MESA V2 Car Seat',          cond:'Like New',  cls:'cl', loc:'Glenelg SA',     price:290, rrp:599  }
   ];
 
-  function pct(i)  { return Math.round((1 - i.price / i.rrp) * 100); }
-  function com(i)  { return Math.round(i.price * 0.085); }
+  function pct(i)  { return Math.round((1 - i.price/i.rrp)*100); }
+  function com(i)  { return Math.round(i.price*0.085); }
   function earn(i) { return i.price - com(i); }
 
   function imgHtml(i) {
-    if (i.img) {
-      return '<img src="' + i.img + '" class="lcard-img" alt="' + i.name + '">';
-    }
-    return '<div class="lcard-emoji">' + i.emoji + '</div>';
+    if (i.img) return '<img src="'+i.img+'" class="lcard-img" alt="'+i.name+'">';
+    return '<div class="lcard-emoji">'+i.emoji+'</div>';
   }
 
   function buyerCard(i) {
     return '<div class="lcard">'
-      + imgHtml(i)
-      + '<div class="lcb">'
-      + '<div class="lexbadge">Example listing</div>'
-      + '<div class="lbrand">' + i.brand + '</div>'
-      + '<div class="lname">' + i.name + '</div>'
-      + '<div class="lrow"><span class="cb ' + i.cls + '">' + i.cond + '</span><span class="lloc">' + i.loc + '</span></div>'
-      + '<div class="lrow"><span class="vbadge"><i class="ti ti-check" style="font-size:9px" aria-hidden="true"></i> ACCC Verified</span></div>'
-      + '<div class="lpr"><span class="lp">$' + i.price + '</span><span class="lr">$' + i.rrp + '</span><span class="ls">' + pct(i) + '% off</span></div>'
-      + '<button class="view-btn" onclick="openModal(\'listing\')">View listing →</button>'
-      + '</div></div>';
+      +imgHtml(i)+'<div class="lcb">'
+      +'<div class="lexbadge">Example listing</div>'
+      +'<div class="lbrand">'+i.brand+'</div>'
+      +'<div class="lname">'+i.name+'</div>'
+      +'<div class="lrow"><span class="cb '+i.cls+'">'+i.cond+'</span><span class="lloc">'+i.loc+'</span></div>'
+      +'<div class="lrow"><span class="vbadge"><i class="ti ti-check" style="font-size:9px" aria-hidden="true"></i> ACCC Verified</span></div>'
+      +'<div class="lpr"><span class="lp">$'+i.price+'</span><span class="lr">$'+i.rrp+'</span><span class="ls">'+pct(i)+'% off</span></div>'
+      +'<button class="view-btn" onclick="openModal(\'listing\')">View listing →</button>'
+      +'</div></div>';
   }
 
   function sellerCard(i) {
     return '<div class="lcard">'
-      + imgHtml(i)
-      + '<div class="lcb">'
-      + '<div class="lexbadge">Example listing</div>'
-      + '<div class="lbrand">' + i.brand + '</div>'
-      + '<div class="lname">' + i.name + '</div>'
-      + '<hr class="ldivider">'
-      + '<div class="earn-row"><span class="earn-lbl">Your listing price</span><span class="earn-val">$' + i.price + '</span></div>'
-      + '<div class="earn-row"><span class="earn-lbl">TotLoop fee</span><span class="earn-val neg">−$' + com(i) + '</span></div>'
-      + '<div class="earn-total"><span class="earn-total-lbl">You receive</span><span class="earn-total-val">$' + earn(i) + '</span></div>'
-      + '<div class="founder-row"><div class="founder-top"><span class="founder-lbl">⭐ As a founding member</span><span class="founder-val">$' + i.price + '</span></div>'
-      + '<div class="founder-sub">Zero fees — you keep $' + com(i) + ' more</div></div>'
-      + '<button class="list-btn" onclick="openModal(\'sell\')">List this item →</button>'
-      + '</div></div>';
+      +imgHtml(i)+'<div class="lcb">'
+      +'<div class="lexbadge">Example listing</div>'
+      +'<div class="lbrand">'+i.brand+'</div>'
+      +'<div class="lname">'+i.name+'</div>'
+      +'<hr class="ldivider">'
+      +'<div class="earn-row"><span class="earn-lbl">Your listing price</span><span class="earn-val">$'+i.price+'</span></div>'
+      +'<div class="earn-row"><span class="earn-lbl">littleLoom fee</span><span class="earn-val neg">−$'+com(i)+'</span></div>'
+      +'<div class="earn-total"><span class="earn-total-lbl">You receive</span><span class="earn-total-val">$'+earn(i)+'</span></div>'
+      +'<div class="founder-row"><div class="founder-top"><span class="founder-lbl">⭐ As a founding member</span><span class="founder-val">$'+i.price+'</span></div>'
+      +'<div class="founder-sub">Zero fees — you keep $'+com(i)+' more</div></div>'
+      +'<button class="list-btn" onclick="openModal(\'sell\')">List this item →</button>'
+      +'</div></div>';
   }
 
   function renderListings() {
-    var html = '';
-    for (var x = 0; x < items.length; x++) {
-      html += listView === 'buyer' ? buyerCard(items[x]) : sellerCard(items[x]);
-    }
-    document.getElementById('lgrid').innerHTML = html;
+    var h=''; for(var x=0;x<items.length;x++) h+=listView==='buyer'?buyerCard(items[x]):sellerCard(items[x]);
+    document.getElementById('lgrid').innerHTML=h;
   }
 
   function setView(v) {
-    listView = v;
-    document.getElementById('t-buyer').className = v === 'buyer' ? 'topt act' : 'topt';
-    document.getElementById('t-seller').className = v === 'seller' ? 'topt act' : 'topt';
-    document.getElementById('toggle-hint').textContent = v === 'buyer'
-      ? 'See what buyers find on TotLoop'
-      : 'See what sellers earn on TotLoop';
+    listView=v;
+    document.getElementById('t-buyer').className=v==='buyer'?'topt act':'topt';
+    document.getElementById('t-seller').className=v==='seller'?'topt act':'topt';
+    document.getElementById('toggle-hint').textContent=v==='buyer'?'See what buyers find on littleLoom':'See what sellers earn on littleLoom';
     renderListings();
   }
 
-  var CA  = { mixed:272, pram:650, seat:280, cot:180, clothing:55 };
-  var CS  = { mixed:60,  pram:63,  seat:52,  cot:56,  clothing:67 };
-  var cat = 'mixed', qty = 5;
+  var CA={mixed:272,pram:650,seat:280,cot:180,clothing:55};
+  var CS={mixed:60,pram:63,seat:52,cot:56,clothing:67};
+  var cat='mixed',qty=5;
 
   function calcUpdate() {
-    var e = Math.round(CA[cat] * qty * 0.915 / 10) * 10;
-    document.getElementById('ce').textContent = '$' + e.toLocaleString();
-    document.getElementById('cs').textContent = '~' + CS[cat] + '%';
-    document.getElementById('ci').textContent = qty + (qty === 1 ? ' item' : ' items');
-    document.getElementById('qs').textContent = qty + (qty === 1 ? ' item' : ' items');
+    var e=Math.round(CA[cat]*qty*0.915/10)*10;
+    document.getElementById('ce').textContent='$'+e.toLocaleString();
+    document.getElementById('cs').textContent='~'+CS[cat]+'%';
+    document.getElementById('ci').textContent=qty+(qty===1?' item':' items');
+    document.getElementById('qs').textContent=qty+(qty===1?' item':' items');
   }
-  function setQty(v) { qty = parseInt(v); calcUpdate(); }
-  function setCat(el, c) {
-    document.querySelectorAll('.cat-pill').forEach(function(p) { p.classList.remove('act'); });
-    el.classList.add('act'); cat = c; calcUpdate();
-  }
+  function setQty(v){qty=parseInt(v);calcUpdate();}
+  function setCat(el,c){document.querySelectorAll('.cat-pill').forEach(function(p){p.classList.remove('act');});el.classList.add('act');cat=c;calcUpdate();}
 
-  document.querySelectorAll('.faq-q').forEach(function(q) {
-    q.addEventListener('click', function() {
-      var it = q.parentElement, op = it.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-      if (!op) it.classList.add('open');
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click',function(){
+      var it=q.parentElement,op=it.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+      if(!op)it.classList.add('open');
     });
   });
 
-  function updateSpots() {
-    var p = ((500 - spots) / 500 * 100).toFixed(1);
-    document.getElementById('sfill').style.width       = p + '%';
-    document.getElementById('fspot-txt').textContent   = spots + ' spots left';
-    document.getElementById('plan-spots').textContent  = spots + ' left';
-    document.getElementById('mspot-txt').textContent   = ' ' + spots + ' spots remaining.';
-    document.getElementById('pbarfill').style.width    = p + '%';
+  function updateSpots(){
+    var p=((500-spots)/500*100).toFixed(1);
+    document.getElementById('sfill').style.width=p+'%';
+    document.getElementById('fspot-txt').textContent=spots+' spots left';
+    document.getElementById('plan-spots').textContent=spots+' left';
+    document.getElementById('mspot-txt').textContent=' '+spots+' spots remaining.';
+    if(document.getElementById('pbarfill'))document.getElementById('pbarfill').style.width=p+'%';
   }
 
-  function sr(r) {
-    role = r;
-    document.getElementById('rb1').className = r === 'buyer'  ? 'rbtn sel' : 'rbtn';
-    document.getElementById('rb2').className = r === 'seller' ? 'rbtn sel' : 'rbtn';
+  function sr(r){
+    role=r;
+    document.getElementById('rb1').className=r==='buyer'?'rbtn sel':'rbtn';
+    document.getElementById('rb2').className=r==='seller'?'rbtn sel':'rbtn';
   }
 
-  function openModal(src) {
-    document.getElementById('mv').style.display = 'flex';
-    document.getElementById('md').style.display = 'block';
-    document.getElementById('ms').style.display = 'none';
-    document.getElementById('ei').style.borderColor = '';
-    if (src === 'sell' || src === 'founding') {
+  function openModal(src){
+    document.getElementById('mv').style.display='flex';
+    document.getElementById('md').style.display='block';
+    document.getElementById('ms').style.display='none';
+    document.getElementById('ei').style.borderColor='';
+    if(src==='sell'||src==='founding'){
       sr('seller');
-      document.getElementById('mtag').textContent = 'Founding Member Offer';
-      document.getElementById('mh').textContent   = 'Claim your free spot.';
-      document.getElementById('msub').textContent = 'First 500 sellers join TotLoop completely free — zero fees, forever.';
+      document.getElementById('mtag').textContent='Founding Member Offer';
+      document.getElementById('mh').textContent='Claim your free spot.';
+      document.getElementById('msub').textContent='First 500 sellers join littleLoom completely free — zero fees, forever.';
     } else {
       sr('buyer');
-      document.getElementById('mtag').textContent = 'Coming soon';
-      document.getElementById('mh').textContent   = "TotLoop isn't live yet.";
-      document.getElementById('msub').textContent = 'Be the first to know when we launch near you.';
+      document.getElementById('mtag').textContent='Coming soon';
+      document.getElementById('mh').textContent="littleLoom isn't live yet.";
+      document.getElementById('msub').textContent='Be the first to know when we launch near you.';
     }
-    document.getElementById('mv').onclick = function(e) { if (e.target === document.getElementById('mv')) closeModal(); };
-    document.addEventListener('keydown', function esc(e) { if (e.key === 'Escape') { closeModal(); document.removeEventListener('keydown', esc); } });
+    document.getElementById('mv').onclick=function(e){if(e.target===document.getElementById('mv'))closeModal();};
+    document.addEventListener('keydown',function esc(e){if(e.key==='Escape'){closeModal();document.removeEventListener('keydown',esc);}});
   }
 
-  function closeModal() { document.getElementById('mv').style.display = 'none'; }
+  function closeModal(){document.getElementById('mv').style.display='none';}
 
-  function sub() {
-    var ei = document.getElementById('ei');
-    if (!ei.value || !ei.value.includes('@')) { ei.style.borderColor = '#E24B4A'; ei.focus(); return; }
-    var emailVal = ei.value, roleVal = role;
-    if (roleVal === 'seller' && spots > 0) { spots--; updateSpots(); }
+  function sub(){
+    var ei=document.getElementById('ei');
+    if(!ei.value||!ei.value.includes('@')){ei.style.borderColor='#E24B4A';ei.focus();return;}
+    var emailVal=ei.value,roleVal=role;
+    if(roleVal==='seller'&&spots>0){spots--;updateSpots();}
     closeModal();
-    if (typeof Tally !== 'undefined' && TALLY_FORM_ID !== 'YOUR_TALLY_FORM_ID') {
-      Tally.openPopup(TALLY_FORM_ID, {
-        layout: 'modal', width: 480, autoClose: 3000,
-        hiddenFields: { email: emailVal, role: roleVal, founding: roleVal === 'seller' ? 'yes' : 'no' }
-      });
-    } else if (TALLY_FORM_ID !== 'YOUR_TALLY_FORM_ID') {
-      var p = new URLSearchParams({ email: emailVal, role: roleVal, founding: roleVal === 'seller' ? 'yes' : 'no' });
-      window.open('https://tally.so/r/' + TALLY_FORM_ID + '?' + p.toString(), '_blank');
+    if(typeof Tally!=='undefined'&&TALLY_FORM_ID!=='YOUR_TALLY_FORM_ID'){
+      Tally.openPopup(TALLY_FORM_ID,{layout:'modal',width:480,autoClose:3000,hiddenFields:{email:emailVal,role:roleVal,founding:roleVal==='seller'?'yes':'no'}});
+    } else if(TALLY_FORM_ID!=='YOUR_TALLY_FORM_ID'){
+      var p=new URLSearchParams({email:emailVal,role:roleVal,founding:roleVal==='seller'?'yes':'no'});
+      window.open('https://tally.so/r/'+TALLY_FORM_ID+'?'+p.toString(),'_blank');
     }
   }
 
